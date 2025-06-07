@@ -24,7 +24,7 @@ export default function ChatBox() {
       const parseData = await parseRes.json();
 
       // Step 2: Call /chat
-      const chatRes = await fetch('http://localhost:5050/api/chat', {
+      const chatRes = await fetch('http://localhost:5050/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

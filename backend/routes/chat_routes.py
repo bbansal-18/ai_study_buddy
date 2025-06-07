@@ -5,7 +5,7 @@ from openai import OpenAI
 chat_bp = Blueprint('chat_bp', __name__)
 client = OpenAI()  # uses OPENAI_API_KEY from env
 
-@chat_bp.route('/api/chat', methods=['POST'])
+@chat_bp.route('/chat', methods=['POST'])
 def chat():
     user_query = request.json.get("query", "").strip()
     if not user_query:
