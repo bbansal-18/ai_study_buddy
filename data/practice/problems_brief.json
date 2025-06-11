@@ -1,0 +1,290 @@
+[
+  {
+    "id": "recursion_easy_1",
+    "title": "Factorial of a Number",
+    "topic": "recursion",
+    "difficulty": "easy"
+  },
+  {
+    "id": "recursion_moderate_1",
+    "title": "Generate All Subsets (Power Set)",
+    "topic": "recursion",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "recursion_hard_1",
+    "title": "N-Queens",
+    "topic": "recursion",
+    "difficulty": "hard"
+  },
+  {
+    "id": "dynamic_programming_easy_1",
+    "title": "Climbing Stairs",
+    "topic": "dynamic programming",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dynamic_programming_moderate_1",
+    "title": "Unique Paths",
+    "topic": "dynamic programming",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "dynamic_programming_hard_1",
+    "title": "Edit Distance",
+    "topic": "dynamic programming",
+    "difficulty": "hard"
+  },
+  {
+    "id": "graphs_easy_1",
+    "title": "Flood Fill",
+    "topic": "graphs",
+    "difficulty": "easy"
+  },
+  {
+    "id": "graphs_moderate_1",
+    "title": "Number of Islands",
+    "topic": "graphs",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "graphs_hard_1",
+    "title": "Word Ladder II",
+    "topic": "graphs",
+    "difficulty": "hard"
+  },
+  {
+    "id": "linked_lists_easy_1",
+    "title": "Reverse Linked List",
+    "topic": "linked lists",
+    "difficulty": "easy"
+  },
+  {
+    "id": "linked_lists_moderate_1",
+    "title": "Linked List Cycle II",
+    "topic": "linked lists",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "linked_lists_hard_1",
+    "title": "Merge k Sorted Lists",
+    "topic": "linked lists",
+    "difficulty": "hard"
+  },
+  {
+    "id": "arrays_easy_1",
+    "title": "Two Sum",
+    "topic": "arrays",
+    "difficulty": "easy"
+  },
+  {
+    "id": "arrays_moderate_1",
+    "title": "3Sum",
+    "topic": "arrays",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "arrays_hard_1",
+    "title": "First Missing Positive",
+    "topic": "arrays",
+    "difficulty": "hard"
+  },
+  {
+    "id": "binary_trees_easy_1",
+    "title": "Maximum Depth of Binary Tree",
+    "topic": "binary trees",
+    "difficulty": "easy"
+  },
+  {
+    "id": "binary_trees_moderate_1",
+    "title": "Binary Tree Level Order Traversal",
+    "topic": "binary trees",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "binary_trees_hard_1",
+    "title": "Binary Tree Maximum Path Sum",
+    "topic": "binary trees",
+    "difficulty": "hard"
+  },
+  {
+    "id": "sorting_easy_1",
+    "title": "Implement Bubble Sort",
+    "topic": "sorting",
+    "difficulty": "easy"
+  },
+  {
+    "id": "sorting_moderate_1",
+    "title": "Merge Sort",
+    "topic": "sorting",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "sorting_hard_1",
+    "title": "Sort Colors (Dutch National Flag)",
+    "topic": "sorting",
+    "difficulty": "hard"
+  },
+  {
+    "id": "searching_easy_1",
+    "title": "Binary Search",
+    "topic": "searching",
+    "difficulty": "easy"
+  },
+  {
+    "id": "searching_moderate_1",
+    "title": "Search in Rotated Sorted Array",
+    "topic": "searching",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "searching_hard_1",
+    "title": "Median of Two Sorted Arrays",
+    "topic": "searching",
+    "difficulty": "hard"
+  },
+  {
+    "id": "hashmaps_easy_1",
+    "title": "Valid Anagram",
+    "topic": "hashmaps",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hashmaps_moderate_1",
+    "title": "Group Anagrams",
+    "topic": "hashmaps",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "hashmaps_hard_1",
+    "title": "Substring with Concatenation of All Words",
+    "topic": "hashmaps",
+    "difficulty": "hard"
+  },
+  {
+    "id": "stacks_easy_1",
+    "title": "Valid Parentheses",
+    "topic": "stacks",
+    "difficulty": "easy"
+  },
+  {
+    "id": "stacks_moderate_1",
+    "title": "Min Stack",
+    "topic": "stacks",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "stacks_hard_1",
+    "title": "Largest Rectangle in Histogram",
+    "topic": "stacks",
+    "difficulty": "hard"
+  },
+  {
+    "id": "queues_easy_1",
+    "title": "Implement Queue Using Stacks",
+    "topic": "queues",
+    "difficulty": "easy"
+  },
+  {
+    "id": "queues_moderate_1",
+    "title": "Design Circular Queue",
+    "topic": "queues",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "queues_hard_1",
+    "title": "Sliding Window Maximum",
+    "topic": "queues",
+    "difficulty": "hard"
+  },
+  {
+    "id": "greedy_algorithms_easy_1",
+    "title": "Best Time to Buy and Sell Stock",
+    "topic": "greedy algorithms",
+    "difficulty": "easy"
+  },
+  {
+    "id": "greedy_algorithms_moderate_1",
+    "title": "Jump Game",
+    "topic": "greedy algorithms",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "greedy_algorithms_hard_1",
+    "title": "Find Median from Data Stream",
+    "topic": "greedy algorithms",
+    "difficulty": "hard"
+  },
+  {
+    "id": "python_syntax_easy_1",
+    "title": "List Comprehension Practice",
+    "topic": "python syntax",
+    "difficulty": "easy"
+  },
+  {
+    "id": "python_syntax_moderate_1",
+    "title": "Decorator to Time Function Execution",
+    "topic": "python syntax",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "python_syntax_hard_1",
+    "title": "Metaclass to Enforce Singleton Pattern",
+    "topic": "python syntax",
+    "difficulty": "hard"
+  },
+  {
+    "id": "loops_easy_1",
+    "title": "Sum of 1 to N",
+    "topic": "loops",
+    "difficulty": "easy"
+  },
+  {
+    "id": "loops_moderate_1",
+    "title": "Print Zigzag Pattern",
+    "topic": "loops",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "loops_hard_1",
+    "title": "Generate Combinations of Parentheses (Recursive/Loop Hybrid)",
+    "topic": "loops",
+    "difficulty": "hard"
+  },
+  {
+    "id": "functions_easy_1",
+    "title": "Recursive Fibonacci",
+    "topic": "functions",
+    "difficulty": "easy"
+  },
+  {
+    "id": "functions_moderate_1",
+    "title": "Memoized Fibonacci (Higher-Order Function)",
+    "topic": "functions",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "functions_hard_1",
+    "title": "Decorator with Arguments",
+    "topic": "functions",
+    "difficulty": "hard"
+  },
+  {
+    "id": "oop_easy_1",
+    "title": "Define a Rectangle Class",
+    "topic": "OOP",
+    "difficulty": "easy"
+  },
+  {
+    "id": "oop_moderate_1",
+    "title": "Implement a Stack Class with O(1) min() Method",
+    "topic": "OOP",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "oop_hard_1",
+    "title": "Design a Least Recently Used (LRU) Cache",
+    "topic": "OOP",
+    "difficulty": "hard"
+  }
+]

@@ -1,0 +1,1015 @@
+{
+  "recursion_easy_1": {
+    "title": "Factorial of a Number",
+    "topic": "recursion",
+    "difficulty": "easy",
+    "function": "factorial",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "Given a non-negative integer n, return n! (the product of all positive integers less than or equal to n). Assume n ≥ 0.",
+    "sample_input": "5",
+    "sample_output": "120",
+    "boilerplate": {
+      "python": "def factorial(n: int) -> int:\n    \"\"\"Compute n! recursively.\"\"\"\n    pass  # TODO: implement\n",
+      "java": "public static int factorial(int n) {\n        // TODO: implement\n        return 0;\n    }\n",
+      "c": "int factorial(int n) {\n    // TODO: implement\n    return 0;\n}\n",
+      "cpp": "int factorial(int n) {\n    // TODO: implement\n    return 0;\n}\n",
+      "javascript": "function factorial(n) {\n    // TODO: implement\n    return 0;\n}\n",
+      "sml": "fun factorial (n: int) : int =\n    (* TODO: implement *)\n    raise Fail \"unimplemented\"\n"
+    }
+  },
+  "recursion_moderate_1": {
+    "title": "Generate All Subsets (Power Set)",
+    "topic": "recursion",
+    "difficulty": "moderate",
+    "function": "subsets",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "list[list[int]]",
+    "statement": "Given a list of distinct integers nums, return all possible subsets (the power set). The solution set must not contain duplicate subsets. You can return subsets in any order.",
+    "sample_input": "[1, 2, 3]",
+    "sample_output": "[[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef subsets(nums: List[int]) -> List[List[int]]:\n    \"\"\"Generate all subsets of nums recursively.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    result = subsets(nums)\n    print(result)",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Generate all subsets of nums recursively\n    public static List<List<Integer>> subsets(int[] nums) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        line = line.trim();\n        // assume input is JSON array like [1,2,3]\n        // TODO: parse line into int[] nums\n        int[] nums = {};\n        List<List<Integer>> result = subsets(nums);\n        System.out.println(result);\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Generate all subsets of nums recursively\n// nums: pointer to array of ints, length: n\n// Return: placeholder (to be defined)\nvoid subsets(int *nums, int n) {\n    // TODO: implement\n}\n\nint main(void) {\n    // TODO: read JSON-like input into array\n    int *nums = NULL;\n    int n = 0;\n    subsets(nums, n);\n    // TODO: print result\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n\nusing namespace std;\n\n// Generate all subsets of nums recursively\nvector<vector<int>> subsets(const vector<int> &nums) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: read JSON-like input into vector<int> nums\n    vector<int> nums;\n    auto result = subsets(nums);\n    // TODO: print result\n    return 0;\n}",
+      "javascript": "const fs = require('fs');\n\n// Generate all subsets of nums recursively\nfunction subsets(nums) {\n    // TODO: implement\n    return [];\n}\n\n// Read JSON array from stdin\nconst input = fs.readFileSync(0, 'utf-8').trim();\nconst nums = JSON.parse(input);\nconst result = subsets(nums);\nconsole.log(JSON.stringify(result));",
+      "sml": "(* Generate all subsets of nums recursively *)\nfun subsets (nums: int list) : int list list =\n    (* TODO: implement *)\n    []\n\n(* Read JSON-style list from stdin, compute and print *)\nval _ =\n    let\n        val line = TextIO.inputLine TextIO.stdIn\n        val maybeNums =\n            case line of\n                SOME s => (* TODO: parse s into int list *) NONE\n              | NONE   => NONE\n    in\n        case maybeNums of\n             SOME nums => print (\"[\" ^ \"\\n\")  (* placeholder *)\n           | NONE      => ()\n    end"
+    }
+  },
+  "recursion_hard_1": {
+    "title": "N-Queens",
+    "topic": "recursion",
+    "difficulty": "hard",
+    "function": "solve_n_queens",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "list[list[str]]",
+    "statement": "Place n queens on an n×n chessboard so that no two queens attack each other. Return all distinct solutions. Each solution is a list of n strings of length n, where 'Q' indicates a queen and '.' indicates an empty square.",
+    "sample_input": "4",
+    "sample_output": "[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"], [\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef solve_n_queens(n: int) -> List[List[str]]:\n    \"\"\"Return all distinct n-queen board configurations.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    solutions = solve_n_queens(n)\n    print(solutions)",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Solve the n-queens problem\n    public static List<List<String>> solve_n_queens(int n) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        List<List<String>> sols = solve_n_queens(n);\n        System.out.println(sols);\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Solve the n-queens problem\n// n: board size\n// Return: placeholder\nvoid solve_n_queens(int n) {\n    // TODO: implement\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    solve_n_queens(n);\n    // TODO: print solutions\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\n// Solve the n-queens problem\nvector<vector<string>> solve_n_queens(int n) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    auto sols = solve_n_queens(n);\n    // TODO: print sols\n    return 0;\n}",
+      "javascript": "const fs = require('fs');\n\n// Solve the n-queens problem\nfunction solve_n_queens(n) {\n    // TODO: implement\n    return [];\n}\n\nconst n = parseInt(fs.readFileSync(0, 'utf-8').trim(), 10);\nconst sols = solve_n_queens(n);\nconsole.log(JSON.stringify(sols));",
+      "sml": "(* Solve the n-queens problem *)\nfun solve_n_queens (n: int) : string list list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val line = TextIO.inputLine TextIO.stdIn\n        val nOpt = Option.bind (fn s => Int.fromString(String.trim s)) line\n    in\n        case nOpt of\n             SOME n => print (\"[]\\n\")  (* placeholder *)\n           | NONE   => ()\n    end"
+    }
+  },
+  "dynamic_programming_easy_1": {
+    "title": "Climbing Stairs",
+    "topic": "dynamic programming",
+    "difficulty": "easy",
+    "function": "climb_stairs",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "You are climbing a staircase with n steps. You can take either 1 or 2 steps at a time. Return how many distinct ways you can climb to the top. For n = 0, return 1 (one way: do nothing).",
+    "sample_input": "3",
+    "sample_output": "3",
+    "boilerplate": {
+      "python": "def climb_stairs(n: int) -> int:\n    \"\"\"Return number of ways to climb n stairs.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(climb_stairs(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Compute ways to climb stairs\n    public static int climb_stairs(int n) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(climb_stairs(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Compute ways to climb stairs\nint climb_stairs(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    printf(\"%d\\n\", climb_stairs(n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\n// Compute ways to climb stairs\nint climb_stairs(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    cout << climb_stairs(n) << endl;\n    return 0;\n}",
+      "javascript": "// Compute ways to climb stairs\nfunction climb_stairs(n) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst n = parseInt(fs.readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(climb_stairs(n));",
+      "sml": "(* Compute ways to climb stairs *)\nfun climb_stairs (n: int) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val line = TextIO.inputLine TextIO.stdIn\n        val nOpt = Option.bind (fn s => Int.fromString (String.trim s)) line\n    in\n        case nOpt of\n             SOME n => print (Int.toString (climb_stairs n) ^ \"\\n\")\n           | NONE   => ()\n    end"
+    }
+  },
+  "dynamic_programming_moderate_1": {
+    "title": "Unique Paths",
+    "topic": "dynamic programming",
+    "difficulty": "moderate",
+    "function": "unique_paths",
+    "inputs": [
+      "m: int",
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "A robot is located at the top-left corner of an m×n grid. It can only move down or right. How many unique paths are there from the top-left to the bottom-right corner?",
+    "sample_input": "m = 3, n = 2",
+    "sample_output": "3",
+    "boilerplate": {
+      "python": "def unique_paths(m: int, n: int) -> int:\n    \"\"\"Return number of unique paths in m×n grid.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    m, n = map(int, input().split())\n    print(unique_paths(m, n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Compute unique paths in grid\n    public static int unique_paths(int m, int n) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int m = sc.nextInt(), n = sc.nextInt();\n        System.out.println(unique_paths(m, n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Compute unique paths in grid\nint unique_paths(int m, int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    int m, n;\n    if (scanf(\"%d %d\", &m, &n) != 2) return 0;\n    printf(\"%d\\n\", unique_paths(m, n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\n// Compute unique paths in grid\nint unique_paths(int m, int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    int m, n;\n    if (!(cin >> m >> n)) return 0;\n    cout << unique_paths(m, n) << endl;\n    return 0;\n}",
+      "javascript": "// Compute unique paths in grid\nfunction unique_paths(m, n) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst [m, n] = fs.readFileSync(0, 'utf-8').trim().split(/\\s+/).map(Number);\nconsole.log(unique_paths(m, n));",
+      "sml": "(* Compute unique paths in m×n grid *)\nfun unique_paths (m: int, n: int) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val line = TextIO.inputLine TextIO.stdIn\n        val nums =\n            case line of\n                 SOME s => String.tokens (fn c => c = #\" \") s |> List.mapPartial Int.fromString\n               | NONE   => []\n    in\n        case nums of\n             [m,n] => print (Int.toString (unique_paths(m,n)) ^ \"\\n\")\n           | _     => ()\n    end"
+    }
+  },
+  "dynamic_programming_hard_1": {
+    "title": "Edit Distance",
+    "topic": "dynamic programming",
+    "difficulty": "hard",
+    "function": "min_distance",
+    "inputs": [
+      "word1: str",
+      "word2: str"
+    ],
+    "return": "int",
+    "statement": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 into word2. You have three operations: insert a character, delete a character, or replace a character.",
+    "sample_input": "word1 = \"horse\", word2 = \"ros\"",
+    "sample_output": "3",
+    "boilerplate": {
+      "python": "def min_distance(word1: str, word2: str) -> int:\n    \"\"\"Return edit distance between word1 and word2.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    w1 = input().strip()\n    w2 = input().strip()\n    print(min_distance(w1, w2))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Compute edit distance between two strings\n    public static int min_distance(String word1, String word2) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String w1 = sc.nextLine();\n        String w2 = sc.nextLine();\n        System.out.println(min_distance(w1, w2));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <string.h>\n\n// Compute edit distance between two strings\nint min_distance(const char *w1, const char *w2) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    char w1[1001], w2[1001];\n    if (!fgets(w1, sizeof(w1), stdin)) return 0;\n    if (!fgets(w2, sizeof(w2), stdin)) return 0;\n    // remove newline\n    w1[strcspn(w1, \"\\n\")] = '\\0';\n    w2[strcspn(w2, \"\\n\")] = '\\0';\n    printf(\"%d\\n\", min_distance(w1, w2));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\n// Compute edit distance between two strings\nint min_distance(const string &w1, const string &w2) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    string w1, w2;\n    if (!getline(cin, w1)) return 0;\n    if (!getline(cin, w2)) return 0;\n    cout << min_distance(w1, w2) << endl;\n    return 0;\n}",
+      "javascript": "// Compute edit distance between two strings\nfunction min_distance(w1, w2) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst lines = fs.readFileSync(0, 'utf-8').trim().split(/\\r?\\n/);\nconst [w1, w2] = lines;\nconsole.log(min_distance(w1, w2));",
+      "sml": "(* Compute edit distance between two strings *)\nfun min_distance (w1: string, w2: string) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val lines = TextIO.inputAll TextIO.stdIn |> String.tokens (fn c => c = #\"\\n\" orelse c = #\"\\r\")\n    in\n        case lines of\n             w1::w2::_ => print (Int.toString (min_distance(w1, w2)) ^ \"\\n\")\n           | _         => ()\n    end"
+    }
+  },
+  "graphs_easy_1": {
+    "title": "Flood Fill",
+    "topic": "graphs",
+    "difficulty": "easy",
+    "function": "flood_fill",
+    "inputs": [
+      "image: list[list[int]]",
+      "sr: int",
+      "sc: int",
+      "new_color: int"
+    ],
+    "return": "list[list[int]]",
+    "statement": "Given an m×n array image where each pixel has a color denoted by an integer. Starting from pixel (sr, sc), change the color of all connected pixels (4-directionally) having the same original color to new_color. Return the modified image.",
+    "sample_input": "image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, new_color = 2",
+    "sample_output": "[[2,2,2],[2,2,0],[2,0,1]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef flood_fill(image: List[List[int]], sr: int, sc: int, new_color: int) -> List[List[int]]:\n    \"\"\"Perform flood fill on the image.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    image = data['image']\n    sr, sc = data['sr'], data['sc']\n    new_color = data['new_color']\n    print(flood_fill(image, sr, sc, new_color))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Perform flood fill\n    public static int[][] flood_fill(int[][] image, int sr, int sc, int newColor) {\n        // TODO: implement\n        return image;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[][] image = {};\n        int sr = 0, sc0 = 0, newColor = 0;\n        int[][] result = flood_fill(image, sr, sc0, newColor);\n        System.out.println(Arrays.deepToString(result));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Perform flood fill\nint** flood_fill(int** image, int m, int n, int sr, int sc, int new_color) {\n    // TODO: implement\n    return image;\n}\n\nint main(void) {\n    // TODO: read input and allocate image\n    int m = 0, n = 0, sr = 0, sc = 0, new_color = 0;\n    int **image = NULL;\n    int **result = flood_fill(image, m, n, sr, sc, new_color);\n    // TODO: print result\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Perform flood fill\nvector<vector<int>> flood_fill(vector<vector<int>> &image, int sr, int sc, int new_color) {\n    // TODO: implement\n    return image;\n}\n\nint main() {\n    // TODO: read JSON-like input into image, sr, sc, new_color\n    vector<vector<int>> image;\n    int sr, sc, new_color;\n    auto result = flood_fill(image, sr, sc, new_color);\n    // TODO: print result\n    return 0;\n}",
+      "javascript": "const fs = require('fs');\n\n// Perform flood fill\nfunction flood_fill(image, sr, sc, newColor) {\n    // TODO: implement\n    return image;\n}\n\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconst result = flood_fill(data.image, data.sr, data.sc, data.new_color);\nconsole.log(JSON.stringify(result));",
+      "sml": "(* Perform flood fill on the image *)\nfun flood_fill (image: int list list, sr: int, sc: int, new_color: int) : int list list =\n    (* TODO: implement *)\n    image\n\nval _ =\n    let\n        val data = TextIO.inputAll TextIO.stdIn\n        val parsed = NONE  (* TODO: parse JSON-like input *)\n    in\n        case parsed of\n             SOME (img,sr,sc,nc) => print (\"[]\\n\")\n           | NONE               => ()\n    end"
+    }
+  },
+  "graphs_moderate_1": {
+    "title": "Number of Islands",
+    "topic": "graphs",
+    "difficulty": "moderate",
+    "function": "num_islands",
+    "inputs": [
+      "grid: list[list[str]]"
+    ],
+    "return": "int",
+    "statement": "Given an m×n grid of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
+    "sample_input": "grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]",
+    "sample_output": "1",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef num_islands(grid: List[List[str]]) -> int:\n    \"\"\"Count number of islands in the grid.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    grid = json.loads(sys.stdin.read())\n    print(num_islands(grid))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Count number of islands\n    public static int num_islands(char[][] grid) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like grid into char[][]\n        char[][] grid = {};\n        System.out.println(num_islands(grid));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Count number of islands in grid\nint num_islands(char **grid, int m, int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: read grid dimensions and data\n    int m = 0, n = 0;\n    char **grid = NULL;\n    printf(\"%d\\n\", num_islands(grid, m, n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Count number of islands in grid\nint num_islands(const vector<vector<char>> &grid) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    // TODO: read JSON-like grid into vector<vector<char>> grid\n    vector<vector<char>> grid;\n    cout << num_islands(grid) << endl;\n    return 0;\n}",
+      "javascript": "const fs = require('fs');\n\n// Count number of islands in grid\nfunction num_islands(grid) {\n    // TODO: implement\n    return 0;\n}\n\nconst grid = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(num_islands(grid));",
+      "sml": "(* Count number of islands in grid *)\nfun num_islands (grid: string list list) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val input = TextIO.inputAll TextIO.stdIn\n        val parsed = NONE  (* TODO: parse JSON-like grid *)\n    in\n        case parsed of\n             SOME g => print (Int.toString (num_islands g) ^ \"\\n\")\n           | NONE  => ()\n    end"
+    }
+  },
+  "graphs_hard_1": {
+    "title": "Word Ladder II",
+    "topic": "graphs",
+    "difficulty": "hard",
+    "function": "find_ladders",
+    "inputs": [
+      "begin_word: str",
+      "end_word: str",
+      "word_list: list[str]"
+    ],
+    "return": "list[list[str]]",
+    "statement": "Given begin_word, end_word, and a dictionary of words word_list, return all shortest transformation sequences from begin_word to end_word, such that only one letter can be changed at a time and each transformed word must exist in word_list. Return all possible sequences.",
+    "sample_input": "begin_word = \"hit\", end_word = \"cog\", word_list = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+    "sample_output": "[[\"hit\",\"hot\",\"dot\",\"dog\",\"cog\"], [\"hit\",\"hot\",\"lot\",\"log\",\"cog\"]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef find_ladders(begin_word: str, end_word: str, word_list: List[str]) -> List[List[str]]:\n    \"\"\"Find all shortest transformation sequences.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(find_ladders(data.begin_word, data.end_word, data.word_list))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Find all shortest word ladders\n    public static List<List<String>> find_ladders(String beginWord, String endWord, List<String> wordList) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        String begin = \"\";\n        String end = \"\";\n        List<String> words = new ArrayList<>();\n        System.out.println(find_ladders(begin, end, words));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Find all shortest transformation sequences\n// TODO: define data structures\nvoid find_ladders(const char *begin, const char *end, char **wordList, int wordCount) {\n    // TODO: implement\n}\n\nint main(void) {\n    // TODO: read and parse input\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\n// Find all shortest transformation sequences\nvector<vector<string>> find_ladders(const string &beginWord, const string &endWord, const vector<string> &wordList) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: read JSON-like input into beginWord, endWord, wordList\n    vector<string> wordList;\n    string beginWord, endWord;\n    auto sols = find_ladders(beginWord, endWord, wordList);\n    // TODO: print sols\n    return 0;\n}",
+      "javascript": "const fs = require('fs');\n\n// Find all shortest transformation sequences\nfunction find_ladders(beginWord, endWord, wordList) {\n    // TODO: implement\n    return [];\n}\n\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(JSON.stringify(find_ladders(data.begin_word, data.end_word, data.word_list)));",
+      "sml": "(* Find all shortest transformation sequences *)\nfun find_ladders (beginW: string, endW: string, wordList: string list) : string list list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val input = TextIO.inputAll TextIO.stdIn\n        val data = NONE  (* TODO: parse JSON-like input *)\n    in\n        case data of\n             SOME (b,e,wl) => print (\"[]\\n\")\n           | NONE         => ()\n    end"
+    }
+  },
+  "linked_lists_easy_1": {
+    "title": "Reverse Linked List",
+    "topic": "linked lists",
+    "difficulty": "easy",
+    "function": "reverse_list",
+    "inputs": [
+      "head: ListNode"
+    ],
+    "return": "ListNode",
+    "statement": "Given the head of a singly linked list, reverse the list and return the new head.",
+    "sample_input": "1 -> 2 -> 3 -> 4 -> 5 -> None",
+    "sample_output": "5 -> 4 -> 3 -> 2 -> 1 -> None",
+    "boilerplate": {
+      "python": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef reverse_list(head: ListNode) -> ListNode:\n    \"\"\"Reverse a singly linked list.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: read list nodes from input, construct linked list\n    head = None\n    result = reverse_list(head)\n    # TODO: print resulting list",
+      "java": "public class ListNode {\n    int val;\n    ListNode next;\n    ListNode(int x) { val = x; next = null; }\n}\n\npublic class Main {\n    // Reverse a singly linked list\n    public static ListNode reverse_list(ListNode head) {\n        // TODO: implement\n        return head;\n    }\n\n    public static void main(String[] args) {\n        // TODO: read input, build linked list into head\n        ListNode head = null;\n        ListNode result = reverse_list(head);\n        // TODO: print list starting at result\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct ListNode {\n    int val;\n    struct ListNode *next;\n} ListNode;\n\n// Reverse a singly linked list\nListNode* reverse_list(ListNode* head) {\n    // TODO: implement\n    return head;\n}\n\nint main(void) {\n    // TODO: read input, build linked list into head\n    ListNode* head = NULL;\n    ListNode* result = reverse_list(head);\n    // TODO: print list starting at result\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nstruct ListNode {\n    int val;\n    ListNode *next;\n    ListNode(int x): val(x), next(nullptr) {}\n};\n\n// Reverse a singly linked list\nListNode* reverse_list(ListNode* head) {\n    // TODO: implement\n    return head;\n}\n\nint main() {\n    // TODO: read input, build linked list into head\n    ListNode* head = nullptr;\n    ListNode* result = reverse_list(head);\n    // TODO: print list starting at result\n    return 0;\n}",
+      "javascript": "// Definition for singly-linked list.\nfunction ListNode(val, next = null) {\n    this.val = val;\n    this.next = next;\n}\n\n// Reverse a singly linked list\nfunction reverse_list(head) {\n    // TODO: implement\n    return head;\n}\n\n// TODO: read input, build linked list into head\nconst head = null;\nconst result = reverse_list(head);\n// TODO: print list starting at result",
+      "sml": "(* Definition for singly-linked list *)\ntype listnode = { val: int, next: listnode option }\n\n(* Reverse a singly linked list *)\nfun reverse_list (head: listnode option) : listnode option =\n    (* TODO: implement *)\n    head\n\n(* TODO: read input, build linked list into head *)\nval _ =\n    let\n        val head = NONE\n        val result = reverse_list head\n    in\n        ()  (* TODO: print result *)\n    end"
+    }
+  },
+  "linked_lists_moderate_1": {
+    "title": "Linked List Cycle II",
+    "topic": "linked lists",
+    "difficulty": "moderate",
+    "function": "detect_cycle",
+    "inputs": [
+      "head: ListNode"
+    ],
+    "return": "ListNode | None",
+    "statement": "Given a linked list, return the node where the cycle begins. If there is no cycle, return None. Use O(1) memory.",
+    "sample_input": "3 -> 2 -> 0 -> -4, tail connects to node index 1 (value 2)",
+    "sample_output": "Node with val = 2",
+    "boilerplate": {
+      "python": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef detect_cycle(head: ListNode) -> ListNode:\n    \"\"\"Return start of cycle or None if no cycle.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: read input and build possibly-cyclic list\n    head = None\n    res = detect_cycle(head)\n    print(res.val if res else None)",
+      "java": "public class ListNode {\n    int val;\n    ListNode next;\n    ListNode(int x) { val = x; next = null; }\n}\n\npublic class Main {\n    // Detect cycle start in linked list\n    public static ListNode detect_cycle(ListNode head) {\n        // TODO: implement\n        return null;\n    }\n\n    public static void main(String[] args) {\n        // TODO: read input, build list with cycle\n        ListNode head = null;\n        ListNode node = detect_cycle(head);\n        System.out.println(node != null ? node.val : \"None\");\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct ListNode {\n    int val;\n    struct ListNode *next;\n} ListNode;\n\n// Detect cycle start in linked list\nListNode* detect_cycle(ListNode* head) {\n    // TODO: implement\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input, build cyclic list into head\n    ListNode* head = NULL;\n    ListNode* node = detect_cycle(head);\n    if (node) printf(\"%d\\n\", node->val);\n    else printf(\"None\\n\");\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nstruct ListNode {\n    int val;\n    ListNode *next;\n    ListNode(int x): val(x), next(nullptr) {}\n};\n\n// Detect cycle start in linked list\nListNode* detect_cycle(ListNode* head) {\n    // TODO: implement\n    return nullptr;\n}\n\nint main() {\n    // TODO: read input, build cyclic list into head\n    ListNode* head = nullptr;\n    ListNode* node = detect_cycle(head);\n    if (node) cout << node->val;\n    else cout << \"None\";\n    return 0;\n}",
+      "javascript": "function ListNode(val, next = null) {\n    this.val = val;\n    this.next = next;\n}\n\n// Detect cycle start in linked list\nfunction detect_cycle(head) {\n    // TODO: implement\n    return null;\n}\n\n// TODO: read input, build cyclic list into head\nconst head = null;\nconst node = detect_cycle(head);\nconsole.log(node ? node.val : null);",
+      "sml": "type listnode = { val: int, next: listnode option }\n\n(* Detect cycle start in linked list *)\nfun detect_cycle (head: listnode option) : listnode option =\n    (* TODO: implement *)\n    NONE\n\nval _ =\n    let\n        val head = NONE  (* TODO: build cyclic list *)\n        val res = detect_cycle head\n    in\n        case res of\n             SOME n => print (Int.toString n.val ^ \"\\n\")\n           | NONE   => print \"None\\n\"\n    end"
+    }
+  },
+  "linked_lists_hard_1": {
+    "title": "Merge k Sorted Lists",
+    "topic": "linked lists",
+    "difficulty": "hard",
+    "function": "merge_k_lists",
+    "inputs": [
+      "lists: List[ListNode]"
+    ],
+    "return": "ListNode",
+    "statement": "Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.",
+    "sample_input": "lists = [1->4->5, 1->3->4, 2->6]",
+    "sample_output": "1->1->2->3->4->4->5->6",
+    "boilerplate": {
+      "python": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef merge_k_lists(lists: list[ListNode]) -> ListNode:\n    \"\"\"Merge k sorted lists into one.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: read input, build list of ListNode heads\n    lists = []\n    result = merge_k_lists(lists)\n    # TODO: print merged list",
+      "java": "public class ListNode {\n    int val;\n    ListNode next;\n    ListNode(int x) { val = x; next = null; }\n}\n\npublic class Main {\n    // Merge k sorted linked lists\n    public static ListNode merge_k_lists(List<ListNode> lists) {\n        // TODO: implement\n        return null;\n    }\n\n    public static void main(String[] args) {\n        // TODO: read input, build List<ListNode> lists\n        List<ListNode> lists = new ArrayList<>();\n        ListNode merged = merge_k_lists(lists);\n        // TODO: print merged list\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct ListNode {\n    int val;\n    struct ListNode *next;\n} ListNode;\n\n// Merge k sorted linked lists\nListNode* merge_k_lists(ListNode** lists, int listsSize) {\n    // TODO: implement\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input, build array of ListNode* lists with size listsSize\n    ListNode** lists = NULL;\n    int listsSize = 0;\n    ListNode* merged = merge_k_lists(lists, listsSize);\n    // TODO: print merged list\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nstruct ListNode {\n    int val;\n    ListNode *next;\n    ListNode(int x): val(x), next(nullptr) {}\n};\n\n// Merge k sorted linked lists\nListNode* merge_k_lists(vector<ListNode*>& lists) {\n    // TODO: implement\n    return nullptr;\n}\n\nint main() {\n    // TODO: read input, build vector<ListNode*> lists\n    vector<ListNode*> lists;\n    ListNode* merged = merge_k_lists(lists);\n    // TODO: print merged list\n    return 0;\n}",
+      "javascript": "function ListNode(val, next = null) {\n    this.val = val;\n    this.next = next;\n}\n\n// Merge k sorted linked lists\nfunction merge_k_lists(lists) {\n    // TODO: implement\n    return null;\n}\n\n// TODO: read input, build array of ListNode heads\nconst lists = [];\nconst result = merge_k_lists(lists);\n// TODO: print merged list",
+      "sml": "type listnode = { val: int, next: listnode option }\n\n(* Merge k sorted linked lists *)\nfun merge_k_lists (lists: list (listnode option)) : listnode option =\n    (* TODO: implement *)\n    NONE\n\nval _ =\n    let\n        val lists = []  (* TODO: build list of heads *)\n        val res = merge_k_lists lists\n    in\n        ()  (* TODO: print res *)\n    end"
+    }
+  },
+  "arrays_easy_1": {
+    "title": "Two Sum",
+    "topic": "arrays",
+    "difficulty": "easy",
+    "function": "two_sum",
+    "inputs": [
+      "nums: list[int]",
+      "target: int"
+    ],
+    "return": "list[int]",
+    "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target. Assume exactly one solution and you may not use the same element twice.",
+    "sample_input": "nums = [2,7,11,15], target = 9",
+    "sample_output": "[0,1]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef two_sum(nums: List[int], target: int) -> List[int]:\n    \"\"\"Return indices of two numbers adding to target.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    result = two_sum(data['nums'], data['target'])\n    print(result)",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Two Sum\n    public static int[] two_sum(int[] nums, int target) {\n        // TODO: implement\n        return new int[0];\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] nums = {};\n        int target = 0;\n        int[] res = two_sum(nums, target);\n        System.out.println(Arrays.toString(res));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Two Sum\nint* two_sum(int* nums, int numsSize, int target, int* returnSize) {\n    // TODO: implement\n    *returnSize = 0;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input array and target\n    int* nums = NULL;\n    int numsSize = 0;\n    int target = 0;\n    int returnSize;\n    int* res = two_sum(nums, numsSize, target, &returnSize);\n    // TODO: print res of length returnSize\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Two Sum\nvector<int> two_sum(const vector<int>& nums, int target) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: read nums and target\n    vector<int> nums;\n    int target;\n    auto res = two_sum(nums, target);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// Two Sum\nfunction two_sum(nums, target) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(two_sum(data.nums, data.target));",
+      "sml": "from List;\n\ntype int_list = int list\n\n(* Two Sum: return indices of two numbers adding to target *)\nfun two_sum (nums: int_list, target: int) : int list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val input = TextIO.inputAll TextIO.stdIn\n        val data = NONE  (* TODO: parse JSON-like input *)\n    in\n        ()  (* TODO: print result *)\n    end"
+    }
+  },
+  "arrays_moderate_1": {
+    "title": "3Sum",
+    "topic": "arrays",
+    "difficulty": "moderate",
+    "function": "three_sum",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "list[list[int]]",
+    "statement": "Given an integer array nums, return all unique triplets [nums[i], nums[j], nums[k]] such that they sum to 0. The solution set must not contain duplicate triplets.",
+    "sample_input": "nums = [-1,0,1,2,-1,-4]",
+    "sample_output": "[[-1,-1,2],[-1,0,1]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef three_sum(nums: List[int]) -> List[List[int]]:\n    \"\"\"Return all unique triplets summing to zero.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    print(three_sum(nums))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // 3Sum\n    public static List<List<Integer>> three_sum(int[] nums) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] nums = {};\n        List<List<Integer>> res = three_sum(nums);\n        System.out.println(res);\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// 3Sum: return array of triplets\nint** three_sum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes) {\n    // TODO: implement\n    *returnSize = 0;\n    *returnColumnSizes = NULL;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input nums\n    int* nums = NULL;\n    int numsSize = 0;\n    int returnSize;\n    int* returnColumnSizes;\n    int** res = three_sum(nums, numsSize, &returnSize, &returnColumnSizes);\n    // TODO: print res\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// 3Sum: return vector of triplets\nvector<vector<int>> three_sum(const vector<int>& nums) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: read nums\n    vector<int> nums;\n    auto res = three_sum(nums);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// 3Sum\nfunction three_sum(nums) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst nums = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(three_sum(nums));",
+      "sml": "(* 3Sum: return all unique triplets summing to zero *)\nfun three_sum (nums: int list) : int list list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val nums = []  (* TODO: parse input *)\n    in\n        ()  (* TODO: print result *)\n    end"
+    }
+  },
+  "arrays_hard_1": {
+    "title": "First Missing Positive",
+    "topic": "arrays",
+    "difficulty": "hard",
+    "function": "first_missing_positive",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "int",
+    "statement": "Given an unsorted integer array nums, find the smallest missing positive integer. Must run in O(n) time and use constant extra space.",
+    "sample_input": "nums = [3,4,-1,1]",
+    "sample_output": "2",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef first_missing_positive(nums: List[int]) -> int:\n    \"\"\"Return smallest missing positive integer.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    print(first_missing_positive(nums))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // First Missing Positive\n    public static int first_missing_positive(int[] nums) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] nums = {};\n        System.out.println(first_missing_positive(nums));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// First Missing Positive\nint first_missing_positive(int* nums, int numsSize) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: read nums\n    int* nums = NULL;\n    int numsSize = 0;\n    printf(\"%d\\n\", first_missing_positive(nums, numsSize));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// First Missing Positive\nint first_missing_positive(const vector<int>& nums) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    // TODO: read nums\n    vector<int> nums;\n    cout << first_missing_positive(nums) << endl;\n    return 0;\n}",
+      "javascript": "// First Missing Positive\nfunction first_missing_positive(nums) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst nums = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(first_missing_positive(nums));",
+      "sml": "(* First Missing Positive *)\nfun first_missing_positive (nums: int list) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val nums = []  (* TODO: parse input *)\n    in\n        print (Int.toString (first_missing_positive nums) ^ \"\\n\")\n    end"
+    }
+  },
+  "binary_trees_easy_1": {
+    "title": "Maximum Depth of Binary Tree",
+    "topic": "binary trees",
+    "difficulty": "easy",
+    "function": "max_depth",
+    "inputs": [
+      "root: TreeNode"
+    ],
+    "return": "int",
+    "statement": "Given the root of a binary tree, return its maximum depth (the number of nodes along the longest path from the root node down to the farthest leaf node).",
+    "sample_input": "root = [3,9,20,null,null,15,7]",
+    "sample_output": "3",
+    "boilerplate": {
+      "python": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef max_depth(root: TreeNode) -> int:\n    \"\"\"Return maximum depth of binary tree.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: parse input into TreeNode root\n    root = None\n    print(max_depth(root))",
+      "java": "public class TreeNode {\n    int val;\n    TreeNode left, right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class Main {\n    // Maximum depth of binary tree\n    public static int max_depth(TreeNode root) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        // TODO: build tree from input\n        TreeNode root = null;\n        System.out.println(max_depth(root));\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct TreeNode {\n    int val;\n    struct TreeNode *left, *right;\n} TreeNode;\n\n// Maximum depth of binary tree\nint max_depth(TreeNode* root) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: build tree from input into root\n    TreeNode* root = NULL;\n    printf(\"%d\\n\", max_depth(root));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nstruct TreeNode {\n    int val;\n    TreeNode *left, *right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\n// Maximum depth of binary tree\nint max_depth(TreeNode* root) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    // TODO: build tree from input into root\n    TreeNode* root = nullptr;\n    cout << max_depth(root) << endl;\n    return 0;\n}",
+      "javascript": "// Definition for a binary tree node.\nfunction TreeNode(val, left = null, right = null) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n}\n\n// Maximum depth of binary tree\nfunction max_depth(root) {\n    // TODO: implement\n    return 0;\n}\n\n// TODO: parse input into root\nconst root = null;\nconsole.log(max_depth(root));",
+      "sml": "(* Definition for binary tree *)\ntype treenode = { val: int, left: treenode option, right: treenode option }\n\n(* Maximum depth of binary tree *)\nfun max_depth (root: treenode option) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val root = NONE  (* TODO: parse input tree *)\n    in\n        print (Int.toString (max_depth root) ^ \"\\n\")\n    end"
+    }
+  },
+  "binary_trees_moderate_1": {
+    "title": "Binary Tree Level Order Traversal",
+    "topic": "binary trees",
+    "difficulty": "moderate",
+    "function": "level_order",
+    "inputs": [
+      "root: TreeNode"
+    ],
+    "return": "List[List[int]]",
+    "statement": "Given the root of a binary tree, return the level order traversal of its nodes’ values (i.e., from left to right, level by level).",
+    "sample_input": "root = [3,9,20,null,null,15,7]",
+    "sample_output": "[[3],[9,20],[15,7]]",
+    "boilerplate": {
+      "python": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef level_order(root: TreeNode) -> list[list[int]]:\n    \"\"\"Return level order traversal of tree.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: build tree from input\n    root = None\n    print(level_order(root))",
+      "java": "import java.util.*;\n\npublic class TreeNode {\n    int val;\n    TreeNode left, right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class Main {\n    // Level order traversal\n    public static List<List<Integer>> level_order(TreeNode root) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        // TODO: build tree from input\n        TreeNode root = null;\n        System.out.println(level_order(root));\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct TreeNode {\n    int val;\n    struct TreeNode *left, *right;\n} TreeNode;\n\n// Level order traversal\n// Returns placeholder structure\nvoid level_order(TreeNode* root) {\n    // TODO: implement\n}\n\nint main(void) {\n    // TODO: build tree from input\n    TreeNode* root = NULL;\n    level_order(root);\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nstruct TreeNode {\n    int val;\n    TreeNode *left, *right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\n// Level order traversal\nvector<vector<int>> level_order(TreeNode* root) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: build tree from input into root\n    TreeNode* root = nullptr;\n    auto res = level_order(root);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// Definition for binary tree node.\nfunction TreeNode(val, left = null, right = null) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n}\n\n// Level order traversal\nfunction level_order(root) {\n    // TODO: implement\n    return [];\n}\n\n// TODO: build tree from input\nconst root = null;\nconsole.log(level_order(root));",
+      "sml": "(* Level order traversal of binary tree *)\nfun level_order (root: treenode option) : int list list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val root = NONE  (* TODO: parse input tree *)\n    in\n        ()  (* TODO: print result *)\n    end"
+    }
+  },
+  "binary_trees_hard_1": {
+    "title": "Binary Tree Maximum Path Sum",
+    "topic": "binary trees",
+    "difficulty": "hard",
+    "function": "max_path_sum",
+    "inputs": [
+      "root: TreeNode"
+    ],
+    "return": "int",
+    "statement": "Given a non-empty binary tree, return the maximum path sum. A path is any sequence of nodes from some starting node to any node in the tree along parent-child connections. The path must contain at least one node.",
+    "sample_input": "root = [-10,9,20,null,null,15,7]",
+    "sample_output": "42",
+    "boilerplate": {
+      "python": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef max_path_sum(root: TreeNode) -> int:\n    \"\"\"Return maximum path sum in tree.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    # TODO: build tree from input\n    root = None\n    print(max_path_sum(root))",
+      "java": "import java.util.*;\n\npublic class TreeNode {\n    int val;\n    TreeNode left, right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class Main {\n    // Maximum path sum\n    public static int max_path_sum(TreeNode root) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        // TODO: build tree from input\n        TreeNode root = null;\n        System.out.println(max_path_sum(root));\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct TreeNode {\n    int val;\n    struct TreeNode *left, *right;\n} TreeNode;\n\n// Maximum path sum\nint max_path_sum(TreeNode* root) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: build tree from input\n    TreeNode* root = NULL;\n    printf(\"%d\\n\", max_path_sum(root));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nstruct TreeNode {\n    int val;\n    TreeNode *left, *right;\n    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}\n};\n\n// Maximum path sum\nint max_path_sum(TreeNode* root) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    // TODO: build tree from input\n    TreeNode* root = nullptr;\n    cout << max_path_sum(root) << endl;\n    return 0;\n}",
+      "javascript": "// Definition for binary tree node.\nfunction TreeNode(val, left = null, right = null) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n}\n\n// Maximum path sum\nfunction max_path_sum(root) {\n    // TODO: implement\n    return 0;\n}\n\n// TODO: build tree from input\nconst root = null;\nconsole.log(max_path_sum(root));",
+      "sml": "(* Maximum path sum in binary tree *)\nfun max_path_sum (root: treenode option) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let\n        val root = NONE  (* TODO: parse input tree *)\n    in\n        print (Int.toString (max_path_sum root) ^ \"\\n\")\n    end"
+    }
+  },
+  "sorting_easy_1": {
+    "title": "Implement Bubble Sort",
+    "topic": "sorting",
+    "difficulty": "easy",
+    "function": "bubble_sort",
+    "inputs": [
+      "arr: list[int]"
+    ],
+    "return": "list[int]",
+    "statement": "Given a list of integers arr, implement bubble sort and return the sorted list in ascending order.",
+    "sample_input": "arr = [5,2,9,1,5,6]",
+    "sample_output": "[1,2,5,5,6,9]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef bubble_sort(arr: List[int]) -> List[int]:\n    \"\"\"Sort arr using bubble sort.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    arr = json.loads(sys.stdin.read())\n    print(bubble_sort(arr))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Bubble sort\n    public static int[] bubble_sort(int[] arr) {\n        // TODO: implement\n        return arr;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] arr = {};\n        System.out.println(Arrays.toString(bubble_sort(arr)));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Bubble sort\nint* bubble_sort(int* arr, int size) {\n    // TODO: implement\n    return arr;\n}\n\nint main(void) {\n    // TODO: read input array\n    int* arr = NULL;\n    int size = 0;\n    int* sorted = bubble_sort(arr, size);\n    // TODO: print sorted array\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Bubble sort\nvector<int> bubble_sort(vector<int> arr) {\n    // TODO: implement\n    return arr;\n}\n\nint main() {\n    // TODO: read input into vector<int> arr\n    vector<int> arr;\n    auto sorted = bubble_sort(arr);\n    // TODO: print sorted\n    return 0;\n}",
+      "javascript": "// Bubble sort\nfunction bubble_sort(arr) {\n    // TODO: implement\n    return arr;\n}\n\nconst fs = require('fs');\nconst arr = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(bubble_sort(arr));",
+      "sml": "(* Bubble sort *)\nfun bubble_sort (arr: int list) : int list =\n    (* TODO: implement *)\n    arr\n\nval _ =\n    let\n        val arr = []  (* TODO: parse input *)\n    in\n        print \"[]\\n\"  (* TODO: print sorted list *)\n    end"
+    }
+  },
+  "sorting_moderate_1": {
+    "title": "Merge Sort",
+    "topic": "sorting",
+    "difficulty": "moderate",
+    "function": "merge_sort",
+    "inputs": [
+      "arr: list[int]"
+    ],
+    "return": "list[int]",
+    "statement": "Implement merge sort on the input list arr and return a new sorted list in ascending order.",
+    "sample_input": "arr = [38,27,43,3,9,82,10]",
+    "sample_output": "[3,9,10,27,38,43,82]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef merge_sort(arr: List[int]) -> List[int]:\n    \"\"\"Sort arr using merge sort.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    arr = json.loads(sys.stdin.read())\n    print(merge_sort(arr))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Merge sort\n    public static int[] merge_sort(int[] arr) {\n        // TODO: implement\n        return arr;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] arr = {};\n        System.out.println(Arrays.toString(merge_sort(arr)));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Merge sort\nint* merge_sort(int* arr, int size) {\n    // TODO: implement\n    return arr;\n}\n\nint main(void) {\n    // TODO: read input array\n    int* arr = NULL;\n    int size = 0;\n    int* sorted = merge_sort(arr, size);\n    // TODO: print sorted array\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Merge sort\nvector<int> merge_sort(const vector<int>& arr) {\n    // TODO: implement\n    return arr;\n}\n\nint main() {\n    // TODO: read input into vector<int> arr\n    vector<int> arr;\n    auto sorted = merge_sort(arr);\n    // TODO: print sorted\n    return 0;\n}",
+      "javascript": "// Merge sort\nfunction merge_sort(arr) {\n    // TODO: implement\n    return arr;\n}\n\nconst fs = require('fs');\nconst arr = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(merge_sort(arr));",
+      "sml": "(* Merge sort *)\nfun merge_sort (arr: int list) : int list =\n    (* TODO: implement *)\n    arr\n\nval _ =\n    let\n        val arr = []  (* TODO: parse input *)\n    in\n        print \"[]\\n\"  (* TODO: print sorted list *)\n    end"
+    }
+  },
+  "sorting_hard_1": {
+    "title": "Sort Colors (Dutch National Flag)",
+    "topic": "sorting",
+    "difficulty": "hard",
+    "function": "sort_colors",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "None",
+    "statement": "Given an array nums with n objects colored red, white, or blue (represented by 0, 1, and 2), sort them in-place so that objects of the same color are adjacent, in the order 0, 1, and 2. Must do it in one pass (O(n) time) and constant space.",
+    "sample_input": "nums = [2,0,2,1,1,0]",
+    "sample_output": "[0,0,1,1,2,2]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef sort_colors(nums: List[int]) -> None:\n    \"\"\"Sort nums in-place using Dutch National Flag algorithm.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    sort_colors(nums)\n    print(nums)",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Dutch National Flag sort\n    public static void sort_colors(int[] nums) {\n        // TODO: implement\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        // TODO: parse JSON-like input\n        int[] nums = {};\n        sort_colors(nums);\n        System.out.println(Arrays.toString(nums));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Dutch National Flag sort\nvoid sort_colors(int* nums, int numsSize) {\n    // TODO: implement\n}\n\nint main(void) {\n    // TODO: read input array\n    int* nums = NULL;\n    int numsSize = 0;\n    sort_colors(nums, numsSize);\n    // TODO: print nums\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Dutch National Flag sort\nvoid sort_colors(vector<int>& nums) {\n    // TODO: implement\n}\n\nint main() {\n    // TODO: read input into vector<int> nums\n    vector<int> nums;\n    sort_colors(nums);\n    // TODO: print nums\n    return 0;\n}",
+      "javascript": "// Dutch National Flag sort\nfunction sort_colors(nums) {\n    // TODO: implement\n}\n\nconst fs = require('fs');\nconst nums = JSON.parse(fs.readFileSync(0, 'utf-8'));\nsort_colors(nums);\nconsole.log(nums);",
+      "sml": "(* Dutch National Flag sort *)\nfun sort_colors (nums: int list) : int list =\n    (* TODO: implement, return sorted list *)\n    nums\n\nval _ =\n    let\n        val nums = []  (* TODO: parse input *)\n        val sorted = sort_colors nums\n    in\n        print \"[]\\n\"  (* TODO: print sorted *)\n    end"
+    }
+  },
+  "searching_easy_1": {
+    "title": "Binary Search",
+    "topic": "searching",
+    "difficulty": "easy",
+    "function": "binary_search",
+    "inputs": [
+      "nums: list[int]",
+      "target: int"
+    ],
+    "return": "int",
+    "statement": "Given a sorted list of distinct integers nums and a target value, return its index if found. Otherwise, return -1. Implement binary search.",
+    "sample_input": "nums = [-1,0,3,5,9,12], target = 9",
+    "sample_output": "4",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef binary_search(nums: List[int], target: int) -> int:\n    \"\"\"Return index of target in sorted nums or -1 if not found.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(binary_search(data['nums'], data['target']))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Binary search in sorted array\n    public static int binary_search(int[] nums, int target) {\n        // TODO: implement\n        return -1;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // assume JSON input\n        String line = sc.nextLine();\n        int[] nums = {};\n        int target = 0;\n        System.out.println(binary_search(nums, target));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Binary search in sorted array\nint binary_search(int* nums, int numsSize, int target) {\n    // TODO: implement\n    return -1;\n}\n\nint main(void) {\n    // TODO: read nums and target\n    int* nums = NULL;\n    int numsSize = 0;\n    int target = 0;\n    printf(\"%d\\n\", binary_search(nums, numsSize, target));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Binary search in sorted array\nint binary_search(const vector<int>& nums, int target) {\n    // TODO: implement\n    return -1;\n}\n\nint main() {\n    // TODO: read nums and target\n    vector<int> nums;\n    int target;\n    cout << binary_search(nums, target) << endl;\n    return 0;\n}",
+      "javascript": "// Binary search in sorted array\nfunction binary_search(nums, target) {\n    // TODO: implement\n    return -1;\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(binary_search(data.nums, data.target));",
+      "sml": "(* Binary search in sorted list *)\nfun binary_search (nums: int list, target: int) : int =\n    (* TODO: implement *)\n    ~1\n\nval _ =\n    let\n        val nums = []  (* TODO: parse input list *)\n        val target = 0\n    in\n        print (Int.toString (binary_search(nums, target)) ^ \"\\n\")\n    end"
+    }
+  },
+  "searching_moderate_1": {
+    "title": "Search in Rotated Sorted Array",
+    "topic": "searching",
+    "difficulty": "moderate",
+    "function": "search_rotated",
+    "inputs": [
+      "nums: list[int]",
+      "target: int"
+    ],
+    "return": "int",
+    "statement": "Suppose an array nums is sorted in ascending order and then rotated at some pivot unknown to you beforehand. If target exists, return its index. Otherwise, return -1. Must run in O(log n) time.",
+    "sample_input": "nums = [4,5,6,7,0,1,2], target = 0",
+    "sample_output": "4",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef search_rotated(nums: List[int], target: int) -> int:\n    \"\"\"Search target in rotated sorted array in O(log n).\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(search_rotated(data['nums'], data['target']))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Search in rotated sorted array\n    public static int search_rotated(int[] nums, int target) {\n        // TODO: implement\n        return -1;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        int[] nums = {};\n        int target = 0;\n        System.out.println(search_rotated(nums, target));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Search in rotated sorted array\nint search_rotated(int* nums, int numsSize, int target) {\n    // TODO: implement\n    return -1;\n}\n\nint main(void) {\n    // TODO: read nums and target\n    int* nums = NULL;\n    int numsSize = 0;\n    int target = 0;\n    printf(\"%d\\n\", search_rotated(nums, numsSize, target));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Search in rotated sorted array\nint search_rotated(const vector<int>& nums, int target) {\n    // TODO: implement\n    return -1;\n}\n\nint main() {\n    // TODO: read nums and target\n    vector<int> nums;\n    int target;\n    cout << search_rotated(nums, target) << endl;\n    return 0;\n}",
+      "javascript": "// Search in rotated sorted array\nfunction search_rotated(nums, target) {\n    // TODO: implement\n    return -1;\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(search_rotated(data.nums, data.target));",
+      "sml": "(* Search in rotated sorted list *)\nfun search_rotated (nums: int list, target: int) : int =\n    (* TODO: implement *)\n    ~1\n\nval _ =\n    let\n        val nums = []\n        val target = 0\n    in\n        print (Int.toString (search_rotated(nums, target)) ^ \"\\n\")\n    end"
+    }
+  },
+  "searching_hard_1": {
+    "title": "Median of Two Sorted Arrays",
+    "topic": "searching",
+    "difficulty": "hard",
+    "function": "find_median_sorted_arrays",
+    "inputs": [
+      "nums1: list[int]",
+      "nums2: list[int]"
+    ],
+    "return": "float",
+    "statement": "Given two sorted arrays nums1 and nums2 of size m and n, return the median of the two sorted arrays. The overall run time complexity should be O(log(min(m, n))).",
+    "sample_input": "nums1 = [1,3], nums2 = [2]",
+    "sample_output": "2.0",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef find_median_sorted_arrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"Return median of two sorted arrays in O(log(min(m,n))).\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(find_median_sorted_arrays(data['nums1'], data['nums2']))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Median of two sorted arrays\n    public static double find_median_sorted_arrays(int[] nums1, int[] nums2) {\n        // TODO: implement\n        return 0.0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        int[] nums1 = {};\n        int[] nums2 = {};\n        System.out.println(find_median_sorted_arrays(nums1, nums2));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Median of two sorted arrays\ndouble find_median_sorted_arrays(int* nums1, int m, int* nums2, int n) {\n    // TODO: implement\n    return 0.0;\n}\n\nint main(void) {\n    // TODO: read nums1, nums2\n    int* nums1 = NULL, *nums2 = NULL;\n    int m = 0, n = 0;\n    printf(\"%.1f\\n\", find_median_sorted_arrays(nums1, m, nums2, n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Median of two sorted arrays\ndouble find_median_sorted_arrays(const vector<int>& nums1, const vector<int>& nums2) {\n    // TODO: implement\n    return 0.0;\n}\n\nint main() {\n    // TODO: read nums1, nums2\n    vector<int> nums1, nums2;\n    cout << find_median_sorted_arrays(nums1, nums2) << endl;\n    return 0;\n}",
+      "javascript": "// Median of two sorted arrays\nfunction find_median_sorted_arrays(nums1, nums2) {\n    // TODO: implement\n    return 0.0;\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(find_median_sorted_arrays(data.nums1, data.nums2));",
+      "sml": "(* Median of two sorted lists *)\nfun find_median_sorted_arrays (nums1: int list, nums2: int list) : real =\n    (* TODO: implement *)\n    0.0\n\nval _ =\n    let\n        val nums1 = []\n        val nums2 = []\n    in\n        print (Real.toString (find_median_sorted_arrays(nums1, nums2)) ^ \"\\n\")\n    end"
+    }
+  },
+  "hashmaps_easy_1": {
+    "title": "Valid Anagram",
+    "topic": "hashmaps",
+    "difficulty": "easy",
+    "function": "is_anagram",
+    "inputs": [
+      "s: str",
+      "t: str"
+    ],
+    "return": "bool",
+    "statement": "Given two strings s and t, return True if t is an anagram of s, and False otherwise.",
+    "sample_input": "s = \"anagram\", t = \"nagaram\"",
+    "sample_output": "true",
+    "boilerplate": {
+      "python": "def is_anagram(s: str, t: str) -> bool:\n    \"\"\"Return True if t is an anagram of s.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    s = input().strip()\n    t = input().strip()\n    print(is_anagram(s, t))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Check if t is an anagram of s\n    public static boolean is_anagram(String s, String t) {\n        // TODO: implement\n        return false;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        String t = sc.nextLine();\n        System.out.println(is_anagram(s, t));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Check if t is an anagram of s\nint is_anagram(const char* s, const char* t) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    char s[1001], t[1001];\n    fgets(s, sizeof(s), stdin);\n    fgets(t, sizeof(t), stdin);\n    printf(\"%d\\n\", is_anagram(s, t));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\n// Check if t is an anagram of s\nbool is_anagram(const string& s, const string& t) {\n    // TODO: implement\n    return false;\n}\n\nint main() {\n    string s, t;\n    getline(cin, s);\n    getline(cin, t);\n    cout << boolalpha << is_anagram(s, t) << endl;\n    return 0;\n}",
+      "javascript": "// Check if t is an anagram of s\nfunction is_anagram(s, t) {\n    // TODO: implement\n    return false;\n}\n\nconst fs = require('fs');\nconst [s, t] = fs.readFileSync(0, 'utf-8').trim().split(/\\r?\\n/);\nconsole.log(is_anagram(s, t));",
+      "sml": "(* Check if t is an anagram of s *)\nfun is_anagram (s: string, t: string) : bool =\n    (* TODO: implement *)\n    false\n\nval _ =\n    let\n        val lines = TextIO.inputAll TextIO.stdIn |> String.tokens (fn c => c = #\"\\n\")\n    in\n        case lines of\n             s::t::_ => print (Bool.toString (is_anagram(s,t)) ^ \"\\n\")\n           | _       => ()\n    end"
+    }
+  },
+  "hashmaps_moderate_1": {
+    "title": "Group Anagrams",
+    "topic": "hashmaps",
+    "difficulty": "moderate",
+    "function": "group_anagrams",
+    "inputs": [
+      "strs: list[str]"
+    ],
+    "return": "list[list[str]]",
+    "statement": "Given an array of strings strs, group the anagrams together. You may return the answer in any order.",
+    "sample_input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+    "sample_output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef group_anagrams(strs: List[str]) -> List[List[str]]:\n    \"\"\"Group anagrams together.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    strs = json.loads(sys.stdin.read())\n    print(group_anagrams(strs))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Group anagrams\n    public static List<List<String>> group_anagrams(String[] strs) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        String[] strs = {};\n        System.out.println(group_anagrams(strs));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Group anagrams (placeholder signature)\nchar*** group_anagrams(char** strs, int strsSize, int* returnSize, int** returnColumnSizes) {\n    // TODO: implement\n    *returnSize = 0;\n    *returnColumnSizes = NULL;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\n// Group anagrams\nvector<vector<string>> group_anagrams(const vector<string>& strs) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    vector<string> strs;\n    auto res = group_anagrams(strs);\n    return 0;\n}",
+      "javascript": "// Group anagrams\nfunction group_anagrams(strs) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst strs = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(group_anagrams(strs));",
+      "sml": "(* Group anagrams *)\nfun group_anagrams (strs: string list) : string list list =\n    (* TODO: implement *)\n    []\n\nval _ =\n    let\n        val strs = []\n    in\n        ()\n    end"
+    }
+  },
+  "hashmaps_hard_1": {
+    "title": "Substring with Concatenation of All Words",
+    "topic": "hashmaps",
+    "difficulty": "hard",
+    "function": "find_substring",
+    "inputs": [
+      "s: str",
+      "words: list[str]"
+    ],
+    "return": "list[int]",
+    "statement": "You are given a string s and an array of strings words. All the strings of words are of the same length. Return all starting indices of substring(s) in s that is a concatenation of each word in words exactly once, in any order, and without any intervening characters.",
+    "sample_input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+    "sample_output": "[0,9]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef find_substring(s: str, words: List[str]) -> List[int]:\n    \"\"\"Find all starting indices of concatenated substrings.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(find_substring(data['s'], data['words']))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Substring with concatenation of all words\n    public static List<Integer> find_substring(String s, String[] words) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        String s = \"\";\n        String[] words = {};\n        System.out.println(find_substring(s, words));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Find substring concatenation indices\nint* find_substring(char* s, char** words, int wordsSize, int* returnSize) {\n    // TODO: implement\n    *returnSize = 0;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\n// Find substring concatenation indices\nvector<int> find_substring(const string& s, const vector<string>& words) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    string s;\n    vector<string> words;\n    auto res = find_substring(s, words);\n    return 0;\n}",
+      "javascript": "// Find substring concatenation indices\nfunction find_substring(s, words) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(find_substring(data.s, data.words));",
+      "sml": "(* Find substring concatenation indices *)\nfun find_substring (s: string, words: string list) : int list =\n    (* TODO: implement *)\n    []\n\nval _ = ()"
+    }
+  },
+  "stacks_easy_1": {
+    "title": "Valid Parentheses",
+    "topic": "stacks",
+    "difficulty": "easy",
+    "function": "is_valid",
+    "inputs": [
+      "s: str"
+    ],
+    "return": "bool",
+    "statement": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if open brackets are closed by the same type of brackets and in the correct order.",
+    "sample_input": "s = \"([{}])\"",
+    "sample_output": "true",
+    "boilerplate": {
+      "python": "def is_valid(s: str) -> bool:\n    \"\"\"Return True if parentheses string is valid.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    print(is_valid(input().strip()))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Valid parentheses\n    public static boolean is_valid(String s) {\n        // TODO: implement\n        return false;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(is_valid(sc.nextLine()));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Valid parentheses\nint is_valid(const char* s) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    char s[1001];\n    fgets(s, sizeof(s), stdin);\n    printf(\"%d\\n\", is_valid(s));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\n// Valid parentheses\nbool is_valid(const string& s) {\n    // TODO: implement\n    return false;\n}\n\nint main() {\n    string s;\n    getline(cin, s);\n    cout << boolalpha << is_valid(s) << endl;\n    return 0;\n}",
+      "javascript": "// Valid parentheses\nfunction is_valid(s) {\n    // TODO: implement\n    return false;\n}\n\nconsole.log(is_valid(require('fs').readFileSync(0, 'utf-8').trim()));",
+      "sml": "(* Valid parentheses *)\nfun is_valid (s: string) : bool =\n    (* TODO: implement *)\n    false\n\nval _ = ()"
+    }
+  },
+  "stacks_moderate_1": {
+    "title": "Min Stack",
+    "topic": "stacks",
+    "difficulty": "moderate",
+    "function": "MinStack",
+    "inputs": [],
+    "return": "class with methods",
+    "statement": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. Implement class MinStack with methods push(val), pop(), top(), and get_min().",
+    "sample_input": "stack = MinStack(); stack.push(-2); stack.push(0); stack.push(-3); stack.get_min(); stack.pop(); stack.top(); stack.get_min();",
+    "sample_output": "[-3, 0, -2]",
+    "boilerplate": {
+      "python": "class MinStack:\n    \"\"\"Stack supporting push, pop, top, get_min in O(1).\"\"\"\n    def __init__(self):\n        pass  # TODO: init\n\n    def push(self, val: int) -> None:\n        pass  # TODO\n\n    def pop(self) -> None:\n        pass  # TODO\n\n    def top(self) -> int:\n        pass  # TODO\n\n    def get_min(self) -> int:\n        pass  # TODO\n\n# TODO: simulate operations from input",
+      "java": "import java.util.*;\n\npublic class MinStack {\n    // TODO: fields\n    public MinStack() {\n        // TODO\n    }\n    public void push(int val) { }\n    public void pop() { }\n    public int top() { return 0; }\n    public int get_min() { return 0; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: simulate operations\n    }\n}",
+      "c": "/* MinStack in C (placeholder) */\n#include <stdio.h>\n\n// TODO: define struct MinStack and methods\nint main(void) {\n    // TODO: simulate operations\n    return 0;\n}",
+      "cpp": "// MinStack in C++\n#include <stack>\nusing namespace std;\n\nclass MinStack {\npublic:\n    MinStack() { }\n    void push(int val) { }\n    void pop() { }\n    int top() { return 0; }\n    int get_min() { return 0; }\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// MinStack in JS\nclass MinStack {\n    constructor() {\n        // TODO\n    }\n    push(val) {}\n    pop() {}\n    top() { return 0; }\n    get_min() { return 0; }\n}\n\n// TODO: simulate operations",
+      "sml": "(* MinStack in SML (placeholder) *)\ntype minstack = unit\n\nfun make_stack (): minstack = ()\nfun push (s: minstack, v: int): minstack = s\nfun pop (s: minstack): minstack = s\nfun top (s: minstack): int = 0\nfun get_min (s: minstack): int = 0\n\nval _ = ()"
+    }
+  },
+  "stacks_hard_1": {
+    "title": "Largest Rectangle in Histogram",
+    "topic": "stacks",
+    "difficulty": "hard",
+    "function": "largest_rectangle_area",
+    "inputs": [
+      "heights: list[int]"
+    ],
+    "return": "int",
+    "statement": "Given an array of integers heights representing the histogram\u2019s bar heights where the width of each bar is 1, return the area of the largest rectangle in the histogram.",
+    "sample_input": "heights = [2,1,5,6,2,3]",
+    "sample_output": "10",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef largest_rectangle_area(heights: List[int]) -> int:\n    \"\"\"Return area of largest rectangle in histogram.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    heights = json.loads(sys.stdin.read())\n    print(largest_rectangle_area(heights))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Largest rectangle in histogram\n    public static int largest_rectangle_area(int[] heights) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[] heights = {};\n        System.out.println(largest_rectangle_area(heights));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Largest rectangle in histogram\nint largest_rectangle_area(int* heights, int heightsSize) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: read heights\n    printf(\"%d\\n\", largest_rectangle_area(NULL, 0));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Largest rectangle in histogram\nint largest_rectangle_area(const vector<int>& heights) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    vector<int> heights;\n    cout << largest_rectangle_area(heights) << endl;\n    return 0;\n}",
+      "javascript": "// Largest rectangle in histogram\nfunction largest_rectangle_area(heights) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst heights = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(largest_rectangle_area(heights));",
+      "sml": "(* Largest rectangle in histogram *)\nfun largest_rectangle_area (heights: int list) : int =\n    (* TODO: implement *)\n    0\n\nval _ = ()"
+    }
+  },
+  "queues_easy_1": {
+    "title": "Implement Queue Using Stacks",
+    "topic": "queues",
+    "difficulty": "easy",
+    "function": "MyQueue",
+    "inputs": [],
+    "return": "class with methods",
+    "statement": "Implement a queue using two stacks. The queue should support push(x), pop(), peek(), and empty() operations.",
+    "sample_input": "queue = MyQueue(); queue.push(1); queue.push(2); queue.peek(); queue.pop(); queue.empty();",
+    "sample_output": "[1, 1, false]",
+    "boilerplate": {
+      "python": "class MyQueue:\n    \"\"\"Queue implemented with two stacks.\"\"\"\n    def __init__(self):\n        pass  # TODO\n    def push(self, x: int) -> None:\n        pass  # TODO\n    def pop(self) -> int:\n        pass  # TODO\n    def peek(self) -> int:\n        pass  # TODO\n    def empty(self) -> bool:\n        pass  # TODO\n\n# TODO: simulate operations",
+      "java": "import java.util.*;\n\npublic class MyQueue {\n    // TODO: fields\n    public MyQueue() { }\n    public void push(int x) { }\n    public int pop() { return 0; }\n    public int peek() { return 0; }\n    public boolean empty() { return true; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: simulate\n    }\n}",
+      "c": "/* MyQueue using two stacks in C (placeholder) */\n#include <stdio.h>\n\nint main(void) {\n    // TODO: implement and simulate\n    return 0;\n}",
+      "cpp": "// MyQueue using two stacks in C++\n#include <stack>\nusing namespace std;\n\nclass MyQueue {\n    stack<int> s1, s2;\npublic:\n    MyQueue() { }\n    void push(int x) { }\n    int pop() { return 0; }\n    int peek() { return 0; }\n    bool empty() { return true; }\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// MyQueue using two stacks in JS\nclass MyQueue {\n    constructor() { }\n    push(x) { }\n    pop() { return 0; }\n    peek() { return 0; }\n    empty() { return true; }\n}\n\n// TODO: simulate operations",
+      "sml": "(* MyQueue using two stacks in SML (placeholder) *)\ntype myqueue = unit\nfun make_queue () : myqueue = ()\nfun push (q: myqueue, x: int): myqueue = q\nfun pop (q: myqueue): int * myqueue = (0, q)\nfun peek (q: myqueue): int = 0\nfun empty (q: myqueue): bool = true\n\nval _ = ()"
+    }
+  },
+  "queues_moderate_1": {
+    "title": "Design Circular Queue",
+    "topic": "queues",
+    "difficulty": "moderate",
+    "function": "MyCircularQueue",
+    "inputs": [
+      "k: int"
+    ],
+    "return": "class with methods",
+    "statement": "Design your implementation of the circular queue. The queue should support en_queue(value), de_queue(), front(), rear(), is_empty(), and is_full() in O(1) time.",
+    "sample_input": "queue = MyCircularQueue(3); queue.en_queue(1); queue.en_queue(2); queue.en_queue(3); queue.en_queue(4); queue.rear(); queue.is_full(); queue.de_queue(); queue.en_queue(4); queue.rear();",
+    "sample_output": "[true, true, true, false, 3, true, true, true, 4]",
+    "boilerplate": {
+      "python": "class MyCircularQueue:\n    \"\"\"Circular queue with capacity k.\"\"\"\n    def __init__(self, k: int):\n        pass  # TODO\n    def en_queue(self, value: int) -> bool:\n        pass  # TODO\n    def de_queue(self) -> bool:\n        pass  # TODO\n    def front(self) -> int:\n        pass  # TODO\n    def rear(self) -> int:\n        pass  # TODO\n    def is_empty(self) -> bool:\n        pass  # TODO\n    def is_full(self) -> bool:\n        pass  # TODO\n\n# TODO: simulate operations",
+      "java": "import java.util.*;\n\npublic class MyCircularQueue {\n    // TODO: fields\n    public MyCircularQueue(int k) { }\n    public boolean en_queue(int value) { return false; }\n    public boolean de_queue() { return false; }\n    public int front() { return -1; }\n    public int rear() { return -1; }\n    public boolean is_empty() { return true; }\n    public boolean is_full() { return false; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: simulate\n    }\n}",
+      "c": "/* MyCircularQueue in C (placeholder) */\n#include <stdio.h>\n\nint main(void) {\n    // TODO: implement and simulate\n    return 0;\n}",
+      "cpp": "// MyCircularQueue in C++\n#include <vector>\nusing namespace std;\n\nclass MyCircularQueue {\n    vector<int> data;\n    int head, tail, count;\npublic:\n    MyCircularQueue(int k) { }\n    bool en_queue(int value) { return false; }\n    bool de_queue() { return false; }\n    int front() { return -1; }\n    int rear() { return -1; }\n    bool is_empty() { return true; }\n    bool is_full() { return false; }\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// MyCircularQueue in JS\nclass MyCircularQueue {\n    constructor(k) { }\n    en_queue(value) { return false; }\n    de_queue() { return false; }\n    front() { return -1; }\n    rear() { return -1; }\n    is_empty() { return true; }\n    is_full() { return false; }\n}\n\n// TODO: simulate operations",
+      "sml": "(* MyCircularQueue in SML (placeholder) *)\ntype cirq = unit\nfun make_cirq(k: int): cirq = ()\nfun en_queue (q: cirq, v: int): bool = false\nfun de_queue (q: cirq): bool = false\nfun front (q: cirq): int = ~1\nfun rear (q: cirq): int = ~1\nfun is_empty (q: cirq): bool = true\nfun is_full (q: cirq): bool = false\n\nval _ = ()"
+    }
+  },
+  "queues_hard_1": {
+    "title": "Sliding Window Maximum",
+    "topic": "queues",
+    "difficulty": "hard",
+    "function": "max_sliding_window",
+    "inputs": [
+      "nums: list[int]",
+      "k: int"
+    ],
+    "return": "list[int]",
+    "statement": "Given an array nums and a number k, return an array of the maximum values of each subarray of length k.",
+    "sample_input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+    "sample_output": "[3,3,5,5,6,7]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef max_sliding_window(nums: List[int], k: int) -> List[int]:\n    \"\"\"Return max of each sliding window of size k.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    data = json.loads(sys.stdin.read())\n    print(max_sliding_window(data['nums'], data['k']))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Sliding window maximum\n    public static int[] max_sliding_window(int[] nums, int k) {\n        // TODO: implement\n        return new int[0];\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[] nums = {};\n        int k = 0;\n        System.out.println(Arrays.toString(max_sliding_window(nums, k)));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Sliding window maximum\nint* max_sliding_window(int* nums, int numsSize, int k, int* returnSize) {\n    // TODO: implement\n    *returnSize = 0;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read nums and k\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Sliding window maximum\nvector<int> max_sliding_window(const vector<int>& nums, int k) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    vector<int> nums;\n    int k;\n    auto res = max_sliding_window(nums, k);\n    return 0;\n}",
+      "javascript": "// Sliding window maximum\nfunction max_sliding_window(nums, k) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst data = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(max_sliding_window(data.nums, data.k));",
+      "sml": "(* Sliding window maximum *)\nfun max_sliding_window (nums: int list, k: int) : int list =\n    (* TODO: implement *)\n    []\n\nval _ = ()"
+    }
+  },
+  "greedy_algorithms_easy_1": {
+    "title": "Best Time to Buy and Sell Stock",
+    "topic": "greedy algorithms",
+    "difficulty": "easy",
+    "function": "max_profit",
+    "inputs": [
+      "prices: list[int]"
+    ],
+    "return": "int",
+    "statement": "You are given an array prices where prices[i] is the price of a given stock on day i. You want to maximize profit by choosing a single day to buy one stock and a different day in the future to sell it. Return the maximum profit. If you cannot achieve any profit, return 0.",
+    "sample_input": "prices = [7,1,5,3,6,4]",
+    "sample_output": "5",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef max_profit(prices: List[int]) -> int:\n    \"\"\"Return max profit from one buy-sell.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    prices = json.loads(sys.stdin.read())\n    print(max_profit(prices))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Best time to buy and sell stock\n    public static int max_profit(int[] prices) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[] prices = {};\n        System.out.println(max_profit(prices));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Best time to buy and sell stock\nint max_profit(int* prices, int pricesSize) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: read prices\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Best time to buy and sell stock\nint max_profit(const vector<int>& prices) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    vector<int> prices;\n    cout << max_profit(prices) << endl;\n    return 0;\n}",
+      "javascript": "// Best time to buy and sell stock\nfunction max_profit(prices) {\n    // TODO: implement\n    return 0;\n}\n\nconst fs = require('fs');\nconst prices = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(max_profit(prices));",
+      "sml": "(* Best time to buy and sell stock *)\nfun max_profit (prices: int list) : int =\n    (* TODO: implement *)\n    0\n\nval _ = ()"
+    }
+  },
+  "greedy_algorithms_moderate_1": {
+    "title": "Jump Game",
+    "topic": "greedy algorithms",
+    "difficulty": "moderate",
+    "function": "can_jump",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "bool",
+    "statement": "Given an array of non-negative integers nums, where each element represents the maximum jump length at that position, determine if you are able to reach the last index starting from the first index.",
+    "sample_input": "nums = [2,3,1,1,4]",
+    "sample_output": "true",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef can_jump(nums: List[int]) -> bool:\n    \"\"\"Return True if can reach last index.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    print(can_jump(nums))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Jump Game\n    public static boolean can_jump(int[] nums) {\n        // TODO: implement\n        return false;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[] nums = {};\n        System.out.println(can_jump(nums));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\n// Jump Game\nint can_jump(int* nums, int numsSize) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    // TODO: read nums\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Jump Game\nbool can_jump(const vector<int>& nums) {\n    // TODO: implement\n    return false;\n}\n\nint main() {\n    vector<int> nums;\n    cout << boolalpha << can_jump(nums) << endl;\n    return 0;\n}",
+      "javascript": "// Jump Game\nfunction can_jump(nums) {\n    // TODO: implement\n    return false;\n}\n\nconst fs = require('fs');\nconst nums = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(can_jump(nums));",
+      "sml": "(* Jump Game *)\nfun can_jump (nums: int list) : bool =\n    (* TODO: implement *)\n    false\n\nval _ = ()"
+    }
+  },
+  "greedy_algorithms_hard_1": {
+    "title": "Find Median from Data Stream",
+    "topic": "greedy algorithms",
+    "difficulty": "hard",
+    "function": "MedianFinder",
+    "inputs": [],
+    "return": "class with methods",
+    "statement": "Implement a class MedianFinder that supports two operations: add_num(num: int) and find_median(), which returns the median of all elements so far.",
+    "sample_input": "mf = MedianFinder(); mf.add_num(1); mf.add_num(2); mf.find_median(); mf.add_num(3); mf.find_median();",
+    "sample_output": "[1.5, 2]",
+    "boilerplate": {
+      "python": "class MedianFinder:\n    \"\"\"Data structure to add numbers and find median.\"\"\"\n    def __init__(self):\n        pass  # TODO\n    def add_num(self, num: int) -> None:\n        pass  # TODO\n    def find_median(self) -> float:\n        pass  # TODO\n\n# TODO: simulate operations",
+      "java": "import java.util.*;\n\npublic class MedianFinder {\n    // TODO: fields\n    public MedianFinder() { }\n    public void add_num(int num) { }\n    public double find_median() { return 0.0; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: simulate\n    }\n}",
+      "c": "/* MedianFinder in C (placeholder) */\n#include <stdio.h>\n\nint main(void) {\n    // TODO: implement and simulate\n    return 0;\n}",
+      "cpp": "// MedianFinder in C++\n#include <queue>\nusing namespace std;\n\nclass MedianFinder {\n    priority_queue<int> lo;\n    priority_queue<int, vector<int>, greater<int>> hi;\npublic:\n    MedianFinder() { }\n    void add_num(int num) { }\n    double find_median() { return 0.0; }\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// MedianFinder in JS\nclass MedianFinder {\n    constructor() { }\n    add_num(num) { }\n    find_median() { return 0.0; }\n}\n\n// TODO: simulate operations",
+      "sml": "(* MedianFinder in SML (placeholder) *)\ntype mf = unit\nfun make_mf (): mf = ()\nfun add_num (m: mf, x: int): mf = m\nfun find_median (m: mf): real = 0.0\n\nval _ = ()"
+    }
+  },
+  "python_syntax_easy_1": {
+    "title": "List Comprehension Practice",
+    "topic": "python syntax",
+    "difficulty": "easy",
+    "function": "even_squares",
+    "inputs": [
+      "nums: list[int]"
+    ],
+    "return": "list[int]",
+    "statement": "Given a list of integers nums, return a new list containing the squares of even numbers in nums using a list comprehension.",
+    "sample_input": "nums = [1,2,3,4,5]",
+    "sample_output": "[4,16]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef even_squares(nums: List[int]) -> List[int]:\n    \"\"\"Return squares of even numbers using list comprehension.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    import sys, json\n    nums = json.loads(sys.stdin.read())\n    print(even_squares(nums))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Return squares of even numbers using streams or loops\n    public static List<Integer> even_squares(List<Integer> nums) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // TODO: parse JSON-like list into nums\n        List<Integer> nums = new ArrayList<>();\n        System.out.println(even_squares(nums));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Return squares of even numbers\nint* even_squares(int* nums, int n, int* returnSize) {\n    // TODO: implement\n    *returnSize = 0;\n    return NULL;\n}\n\nint main(void) {\n    // TODO: read input array and call even_squares\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\n// Return squares of even numbers\nvector<int> even_squares(const vector<int>& nums) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    // TODO: read input into nums\n    vector<int> nums;\n    auto res = even_squares(nums);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// Return squares of even numbers using array methods\nfunction even_squares(nums) {\n    // TODO: implement\n    return [];\n}\n\nconst fs = require('fs');\nconst nums = JSON.parse(fs.readFileSync(0, 'utf-8'));\nconsole.log(even_squares(nums));",
+      "sml": "(* Return squares of even numbers *)\nfun even_squares (nums: int list) : int list =\n    (* TODO: implement *)\n    []\n\nval _ = ()"
+    }
+  },
+  "python_syntax_moderate_1": {
+    "title": "Decorator to Time Function Execution",
+    "topic": "python syntax",
+    "difficulty": "moderate",
+    "function": "timeit",
+    "inputs": [
+      "func: Callable"
+    ],
+    "return": "Callable",
+    "statement": "Implement a decorator @timeit that measures and prints the execution time of the decorated function. The decorator should return the function’s original return value.",
+    "sample_input": "@timeit\ndef compute():\n    total = sum(range(10**6))\n    return total\ncompute()",
+    "sample_output": "compute took 0.01 seconds (and returns the sum value)",
+    "boilerplate": {
+      "python": "import time\nfrom typing import Callable, Any\n\ndef timeit(func: Callable) -> Callable:\n    \"\"\"Decorator to time function execution.\"\"\"\n    def wrapper(*args, **kwargs) -> Any:\n        # TODO: implement timing and print\n        return func(*args, **kwargs)\n    return wrapper\n\n# TODO: apply @timeit and test",
+      "java": "import java.lang.annotation.*;\nimport java.lang.reflect.*;\n\n// Placeholder: Java doesn't have function decorators\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: simulate Python @timeit functionality manually\n    }\n}",
+      "c": "/* C does not support decorators; implement timing manually */\n#include <stdio.h>\n#include <time.h>\n\n// TODO: wrap function call with timing code\nint compute() {\n    // sample compute\n    return 0;\n}\n\nint main(void) {\n    clock_t start = clock();\n    int result = compute();\n    double elapsed = (double)(clock() - start) / CLOCKS_PER_SEC;\n    printf(\"compute took %f seconds and returns %d\\n\", elapsed, result);\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <chrono>\nusing namespace std;\n\nint compute() {\n    // TODO: implement compute\n    return 0;\n}\n\nint main() {\n    auto start = chrono::high_resolution_clock::now();\n    int result = compute();\n    auto end = chrono::high_resolution_clock::now();\n    chrono::duration<double> diff = end - start;\n    cout << \"compute took \" << diff.count() << \" seconds and returns \" << result << endl;\n    return 0;\n}",
+      "javascript": "// JavaScript decorator equivalent using higher-order function\nfunction timeit(func) {\n    return function(...args) {\n        const start = Date.now();\n        const result = func(...args);\n        console.log(`${func.name} took ${(Date.now()-start)/1000} seconds and returns ${result}`);\n        return result;\n    };\n}\n\n// TODO: apply timeit to a function",
+      "sml": "(* SML does not support decorators; simulate timing *)\n(* TODO: use OS.Process.time or similar to time function *)\n\nfun compute () = 0\nval _ = ()"
+    }
+  },
+  "python_syntax_hard_1": {
+    "title": "Metaclass to Enforce Singleton Pattern",
+    "topic": "python syntax",
+    "difficulty": "hard",
+    "function": "SingletonMeta",
+    "inputs": [],
+    "return": "class with metaclass",
+    "statement": "Write a metaclass SingletonMeta so that any class using it as its metaclass will be a singleton. Every time you instantiate the class, you receive the same instance.",
+    "sample_input": "class MyClass(metaclass=SingletonMeta):\n    pass\na = MyClass()\nb = MyClass()",
+    "sample_output": "a is b → true",
+    "boilerplate": {
+      "python": "class SingletonMeta(type):\n    \"\"\"Metaclass that enforces singleton behavior.\"\"\"\n    _instances = {}\n    def __call__(cls, *args, **kwargs):\n        # TODO: implement singleton logic\n        return super().__call__(*args, **kwargs)\n\n# TODO: define and test a class using SingletonMeta",
+      "java": "// Java alternative: enum singleton or static holder\npublic enum Singleton {\n    INSTANCE;\n    // TODO: instance methods\n}\n",
+      "c": "/* C does not support metaclasses; use static variable */\n#include <stdio.h>\n\n// TODO: simulate singleton with static pointer\n\nint main(void) {\n    return 0;\n}",
+      "cpp": "// C++ alternative: Meyers' singleton\n#include <iostream>\n\nclass Singleton {\npublic:\n    static Singleton& instance() {\n        static Singleton inst;\n        return inst;\n    }\nprivate:\n    Singleton() {}\n};\n\nint main() {\n    Singleton &a = Singleton::instance();\n    Singleton &b = Singleton::instance();\n    std::cout << std::boolalpha << (&a == &b) << std::endl;\n    return 0;\n}",
+      "javascript": "// JavaScript singleton via closure\nconst Singleton = (function() {\n    let instance;\n    function Singleton() {\n        if (instance) return instance;\n        instance = this;\n    }\n    return Singleton;\n})();\n\n// TODO: test Singleton",
+      "sml": "(* SML does not support metaclasses; simulate singleton via reference cell *)\nstructure Singleton = struct\n  val instance = ref NONE\n  fun get () =\n    case !instance of\n        SOME x => x\n      | NONE   => let val x = () in instance := SOME x; x end\nend\n\nval _ = (Singleton.get (); Singleton.get ())"
+    }
+  },
+  "loops_easy_1": {
+    "title": "Sum of 1 to N",
+    "topic": "loops",
+    "difficulty": "easy",
+    "function": "sum_to_n",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "Given an integer n, return the sum of all integers from 1 to n (inclusive) using a loop.",
+    "sample_input": "n = 5",
+    "sample_output": "15",
+    "boilerplate": {
+      "python": "def sum_to_n(n: int) -> int:\n    \"\"\"Return sum of integers from 1 to n using a loop.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(sum_to_n(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Sum integers from 1 to n\n    public static int sum_to_n(int n) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(sum_to_n(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\nint sum_to_n(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    printf(\"%d\\n\", sum_to_n(n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint sum_to_n(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    cout << sum_to_n(n) << endl;\n    return 0;\n}",
+      "javascript": "// Sum integers from 1 to n\nfunction sum_to_n(n) {\n    // TODO: implement\n    return 0;\n}\n\nconst n = parseInt(require('fs').readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(sum_to_n(n));",
+      "sml": "(* Sum integers from 1 to n *)\nfun sum_to_n (n: int) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let val n = 0  (* TODO: read input *)\n    in print (Int.toString (sum_to_n n) ^ \"\\n\") end"
+    }
+  },
+  "loops_moderate_1": {
+    "title": "Print Zigzag Pattern",
+    "topic": "loops",
+    "difficulty": "moderate",
+    "function": "zigzag",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "list[str]",
+    "statement": "Given a positive integer n, return a list of strings representing an n×n zigzag pattern of '*' and spaces. For example, n = 5:\n*   *\n * * \n  *  \n * * \n*   *",
+    "sample_input": "n = 3",
+    "sample_output": "[\"* *\",\" * \",\"* *\"]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef zigzag(n: int) -> List[str]:\n    \"\"\"Return n×n zigzag pattern.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(zigzag(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Generate zigzag pattern\n    public static List<String> zigzag(int n) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(zigzag(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Generate zigzag pattern\nchar** zigzag(int n) {\n    // TODO: implement\n    return NULL;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    // TODO: call zigzag and print\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nvector<string> zigzag(int n) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    auto res = zigzag(n);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// Generate zigzag pattern\nfunction zigzag(n) {\n    // TODO: implement\n    return [];\n}\n\nconst n = parseInt(require('fs').readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(zigzag(n));",
+      "sml": "(* Generate zigzag pattern *)\nfun zigzag (n: int) : string list =\n    (* TODO: implement *)\n    []\n\nval _ = ()"
+    }
+  },
+  "loops_hard_1": {
+    "title": "Generate Combinations of Parentheses (Recursive/Loop Hybrid)",
+    "topic": "loops",
+    "difficulty": "hard",
+    "function": "generate_parenthesis",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "list[str]",
+    "statement": "Given n pairs of parentheses, generate all combinations of well-formed parentheses using loops and/or recursion.",
+    "sample_input": "n = 3",
+    "sample_output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+    "boilerplate": {
+      "python": "from typing import List\n\ndef generate_parenthesis(n: int) -> List[str]:\n    \"\"\"Generate all well-formed parentheses combinations.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(generate_parenthesis(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Generate parentheses combinations\n    public static List<String> generate_parenthesis(int n) {\n        // TODO: implement\n        return new ArrayList<>();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(generate_parenthesis(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// Generate parentheses combinations\nchar** generate_parenthesis(int n, int* returnSize) {\n    // TODO: implement\n    *returnSize = 0;\n    return NULL;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    // TODO: call and print\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nvector<string> generate_parenthesis(int n) {\n    // TODO: implement\n    return {};\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    auto res = generate_parenthesis(n);\n    // TODO: print res\n    return 0;\n}",
+      "javascript": "// Generate parentheses combinations\nfunction generate_parenthesis(n) {\n    // TODO: implement\n    return [];\n}\n\nconst n = parseInt(require('fs').readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(generate_parenthesis(n));",
+      "sml": "(* Generate parentheses combinations *)\nfun generate_parenthesis (n: int) : string list =\n    (* TODO: implement *)\n    []\n\nval _ = ()"
+    }
+  },
+  "functions_easy_1": {
+    "title": "Recursive Fibonacci",
+    "topic": "functions",
+    "difficulty": "easy",
+    "function": "fib",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "Given an integer n, return the nth Fibonacci number using a simple recursive approach (fib(0)=0, fib(1)=1).",
+    "sample_input": "n = 4",
+    "sample_output": "3",
+    "boilerplate": {
+      "python": "def fib(n: int) -> int:\n    \"\"\"Return nth Fibonacci using recursion.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(fib(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    // Recursive Fibonacci\n    public static int fib(int n) {\n        // TODO: implement\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(fib(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n\nint fib(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    printf(\"%d\\n\", fib(n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint fib(int n) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    cout << fib(n) << endl;\n    return 0;\n}",
+      "javascript": "// Recursive Fibonacci\nfunction fib(n) {\n    // TODO: implement\n    return 0;\n}\n\nconst n = parseInt(require('fs').readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(fib(n));",
+      "sml": "(* Recursive Fibonacci *)\nfun fib (n: int) : int =\n    (* TODO: implement *)\n    0\n\nval _ =\n    let val n = 0  (* TODO: read input *)\n    in print (Int.toString (fib n) ^ \"\\n\") end"
+    }
+  },
+  "functions_moderate_1": {
+    "title": "Memoized Fibonacci (Higher-Order Function)",
+    "topic": "functions",
+    "difficulty": "moderate",
+    "function": "fib_memo",
+    "inputs": [
+      "n: int"
+    ],
+    "return": "int",
+    "statement": "Rewrite the Fibonacci function using memoization (lru_cache) or a custom dictionary to improve the time complexity to O(n).",
+    "sample_input": "n = 30",
+    "sample_output": "832040",
+    "boilerplate": {
+      "python": "from functools import lru_cache\n@lru_cache(None)\ndef fib_memo(n: int) -> int:\n    \"\"\"Return nth Fibonacci with memoization.\"\"\"\n    pass  # TODO: implement\n\nif __name__ == '__main__':\n    n = int(input().strip())\n    print(fib_memo(n))",
+      "java": "import java.util.*;\n\npublic class Main {\n    static Map<Integer,Integer> memo = new HashMap<>();\n    public static int fib_memo(int n) {\n        // TODO: implement with memo\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(fib_memo(n));\n        sc.close();\n    }\n}",
+      "c": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO: implement fib with memoization via static array or hash\nint fib_memo(int n) {\n    return 0;\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    printf(\"%d\\n\", fib_memo(n));\n    return 0;\n}",
+      "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint fib_memo(int n, vector<int>& memo) {\n    // TODO: implement\n    return 0;\n}\n\nint main() {\n    int n;\n    if (!(cin >> n)) return 0;\n    vector<int> memo(n+1, -1);\n    cout << fib_memo(n, memo) << endl;\n    return 0;\n}",
+      "javascript": "// Memoized Fibonacci\nfunction fib_memo(n, memo = {}) {\n    // TODO: implement\n    return 0;\n}\n\nconst n = parseInt(require('fs').readFileSync(0, 'utf-8').trim(), 10);\nconsole.log(fib_memo(n));",
+      "sml": "(* Memoized Fibonacci using reference cell *)\nstructure MemoFib = struct\n  val cache = Array.array(100000, ~1)\n  fun fib_memo n =\n    if n < 2 then n\n    else case Array.sub(cache,n) of\n      -1 => let val res = fib_memo(n-1) + fib_memo(n-2)\n            in Array.update(cache,n,res); res end\n    | v => v\nend\n\nval _ = ()"
+    }
+  },
+  "functions_hard_1": {
+    "title": "Decorator with Arguments",
+    "topic": "functions",
+    "difficulty": "hard",
+    "function": "repeat",
+    "inputs": [
+      "num_times: int"
+    ],
+    "return": "Callable",
+    "statement": "Implement a decorator factory repeat(num_times) that takes an integer num_times and returns a decorator. When applied to a function, it runs the function num_times times and returns a list of results.",
+    "sample_input": "@repeat(3)\ndef greet(name: str) -> str:\n    return f\"Hello, {name}!\"\ngreet(\"Alice\")",
+    "sample_output": "[\"Hello, Alice!\", \"Hello, Alice!\", \"Hello, Alice!\"]",
+    "boilerplate": {
+      "python": "from typing import Callable, Any, List\n\ndef repeat(num_times: int) -> Callable:\n    \"\"\"Decorator factory to repeat function calls.\"\"\"\n    def decorator(func: Callable) -> Callable:\n        def wrapper(*args, **kwargs) -> List[Any]:\n            # TODO: implement repeating logic\n            return []\n        return wrapper\n    return decorator\n\n# TODO: apply @repeat and test",
+      "java": "// Java does not support decorator syntax; use loops internally\npublic class Main {\n    public static <T> List<T> repeat(int num_times, Supplier<T> func) {\n        List<T> results = new ArrayList<>();\n        // TODO: implement loop\n        return results;\n    }\n    public static void main(String[] args) {\n        // TODO: test repeat\n    }\n}",
+      "c": "/* C does not support decorators; call function in loop */\n#include <stdio.h>\n\nint greet(const char* name) {\n    // TODO: implement\n    return 0;\n}\n\nint main(void) {\n    for (int i = 0; i < 3; i++) {\n        // TODO: call greet and collect results\n    }\n    return 0;\n}",
+      "cpp": "// C++: function wrapper to repeat calls\n#include <iostream>\n#include <vector>\n#include <functional>\nusing namespace std;\n\ntemplate<typename R, typename... Args>\nvector<R> repeat(int num_times, function<R(Args...)> func, Args... args) {\n    vector<R> results;\n    // TODO: implement\n    return results;\n}\n\nint main() {\n    // TODO: test repeat\n    return 0;\n}",
+      "javascript": "// Repeat decorator factory\nfunction repeat(num_times) {\n    return function(func) {\n        return function(...args) {\n            const results = [];\n            // TODO: implement\n            return results;\n        };\n    };\n}\n\n// TODO: apply @repeat and test",
+      "sml": "(* SML does not support decorators; use higher-order function *)\nfun repeat num_times f x =\n    let\n        fun aux 0 acc = acc\n          | aux k acc = aux (k-1) (f x :: acc)\n    in rev (aux num_times []) end\n\nval _ = ()"
+    }
+  },
+  "oop_easy_1": {
+    "title": "Define a Rectangle Class",
+    "topic": "OOP",
+    "difficulty": "easy",
+    "function": "Rectangle",
+    "inputs": [
+      "length: float",
+      "width: float"
+    ],
+    "return": "class with methods",
+    "statement": "Create a class Rectangle with methods: area() returns length × width, and perimeter() returns 2 × (length + width).",
+    "sample_input": "rect = Rectangle(3, 4)",
+    "sample_output": "rect.area() → 12, rect.perimeter() → 14",
+    "boilerplate": {
+      "python": "class Rectangle:\n    def __init__(self, length: float, width: float):\n        pass  # TODO: store dimensions\n\n    def area(self) -> float:\n        pass  # TODO\n\n    def perimeter(self) -> float:\n        pass  # TODO\n\n# TODO: create and test Rectangle",
+      "java": "public class Rectangle {\n    private double length, width;\n    public Rectangle(double length, double width) {\n        // TODO\n    }\n    public double area() { return 0; }\n    public double perimeter() { return 0; }\n    public static void main(String[] args) {\n        // TODO: test Rectangle\n    }\n}",
+      "c": "/* C: struct with functions */\n#include <stdio.h>\n\ntypedef struct {\n    double length, width;\n} Rectangle;\n\ndouble area(Rectangle* r) { return 0; }\ndouble perimeter(Rectangle* r) { return 0; }\n\nint main(void) {\n    // TODO: create and test Rectangle\n    return 0;\n}",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nclass Rectangle {\n    double length, width;\npublic:\n    Rectangle(double l, double w): length(l), width(w) {}\n    double area() { return 0; }\n    double perimeter() { return 0; }\n};\n\nint main() {\n    // TODO: test Rectangle\n    return 0;\n}",
+      "javascript": "class Rectangle {\n    constructor(length, width) {\n        // TODO\n    }\n    area() { return 0; }\n    perimeter() { return 0; }\n}\n\n// TODO: create and test Rectangle",
+      "sml": "(* SML: record with functions *)\ntype rectangle = { length: real, width: real }\n\nfun area r = 0.0\nfun perimeter r = 0.0\n\nval _ = ()"
+    }
+  },
+  "oop_moderate_1": {
+    "title": "Implement a Stack Class with O(1) min() Method",
+    "topic": "OOP",
+    "difficulty": "moderate",
+    "function": "StackWithMin",
+    "inputs": [],
+    "return": "class with methods",
+    "statement": "Implement a stack that, in addition to push, pop, and top, has a method min() returning the minimum element in the stack in O(1) time.",
+    "sample_input": "s = StackWithMin(); s.push(5); s.push(3); s.push(7); s.min(); s.pop(); s.min();",
+    "sample_output": "[3, 3]",
+    "boilerplate": {
+      "python": "class StackWithMin:\n    def __init__(self):\n        pass  # TODO\n    def push(self, val: int) -> None:\n        pass  # TODO\n    def pop(self) -> None:\n        pass  # TODO\n    def top(self) -> int:\n        pass  # TODO\n    def min(self) -> int:\n        pass  # TODO\n\n# TODO: simulate operations",
+      "java": "import java.util.*;\n\npublic class StackWithMin {\n    // TODO: fields\n    public StackWithMin() { }\n    public void push(int val) { }\n    public void pop() { }\n    public int top() { return 0; }\n    public int min() { return 0; }\n    public static void main(String[] args) {\n        // TODO: simulate\n    }\n}",
+      "c": "/* C: stack with min using two stacks */\n#include <stdio.h>\n\nint main(void) {\n    // TODO: implement and simulate\n    return 0;\n}",
+      "cpp": "// C++: stack with min\n#include <stack>\nusing namespace std;\n\nclass StackWithMin {\n    stack<int> s, mins;\npublic:\n    StackWithMin() {}\n    void push(int val) {}\n    void pop() {}\n    int top() { return 0; }\n    int min() { return 0; }\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// JS: stack with min\nclass StackWithMin {\n    constructor() {\n        // TODO\n    }\n    push(val) {}\n    pop() {}\n    top() { return 0; }\n    min() { return 0; }\n}\n\n// TODO: simulate",
+      "sml": "(* SML: stack with min simulated via list of pairs *)\ntype stackmin = (int * int) list\n\nfun push (x, s) = s\nfun pop s = s\nfun top s = 0\nfun min s = 0\n\nval _ = ()"
+    }
+  },
+  "oop_hard_1": {
+    "title": "Design a Least Recently Used (LRU) Cache",
+    "topic": "OOP",
+    "difficulty": "hard",
+    "function": "LRUCache",
+    "inputs": [
+      "capacity: int"
+    ],
+    "return": "class with methods",
+    "statement": "Design an LRU (Least Recently Used) cache data structure supporting get(key) and put(key, value) in O(1) time. When the cache reaches its capacity, evict the least recently used item before inserting a new item.",
+    "sample_input": "cache = LRUCache(2); cache.put(1, 1); cache.put(2, 2); cache.get(1); cache.put(3, 3); cache.get(2); cache.put(4, 4); cache.get(1); cache.get(3); cache.get(4);",
+    "sample_output": "[1, -1, -1, 3, 4]",
+    "boilerplate": {
+      "python": "from collections import OrderedDict\n\nclass LRUCache:\n    def __init__(self, capacity: int):\n        pass  # TODO\n    def get(self, key: int) -> int:\n        pass  # TODO\n    def put(self, key: int, value: int) -> None:\n        pass  # TODO\n\n# TODO: simulate operations",
+      "java": "import java.util.*;\n\npublic class LRUCache {\n    // TODO: fields\n    public LRUCache(int capacity) { }\n    public int get(int key) { return -1; }\n    public void put(int key, int value) { }\n    public static void main(String[] args) {\n        // TODO: simulate\n    }\n}",
+      "c": "/* C: LRUCache with hash and doubly-linked list */\n#include <stdio.h>\n\nint main(void) {\n    // TODO: implement and simulate\n    return 0;\n}",
+      "cpp": "// C++: LRUCache using list and unordered_map\n#include <list>\n#include <unordered_map>\nusing namespace std;\n\nclass LRUCache {\n    int cap;\n    list<pair<int,int>> dq;\n    unordered_map<int, list<pair<int,int>>::iterator> mp;\npublic:\n    LRUCache(int capacity): cap(capacity) {}\n    int get(int key) { return -1; }\n    void put(int key, int value) {}\n};\n\nint main() {\n    // TODO: simulate\n    return 0;\n}",
+      "javascript": "// JS: LRUCache using Map\nclass LRUCache {\n    constructor(capacity) {\n        // TODO\n    }\n    get(key) { return -1; }\n    put(key, value) {}\n}\n\n// TODO: simulate",
+      "sml": "(* SML: LRUCache placeholder *)\ntype lru = unit\nfun make_cache cap = ()\nfun get _ _ = ~1\nfun put _ _ _ = ()\n\nval _ = ()"
+    }
+  }
+}
