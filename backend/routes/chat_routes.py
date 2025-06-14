@@ -47,12 +47,12 @@ def chat():
         )
         content = resp.choices[0].message.content.strip()
 
-        # parse model’s JSON response
+        # parse model's JSON response
         response_json = json.loads(content)
         return jsonify(response_json)
 
     except json.JSONDecodeError:
-        # model didn’t return valid JSON
+        # model didn't return valid JSON
         return jsonify({
             "error": "Failed to parse model response as JSON",
             "raw_response": content
