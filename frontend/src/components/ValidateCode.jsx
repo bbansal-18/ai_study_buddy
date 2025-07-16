@@ -47,7 +47,6 @@ export default async function ValidateCode(userCode, wrapperCode, selectedLang) 
       body: JSON.stringify({
         source_code: finalSource,
         language_id: judgeLangIds[selectedLang],
-        // optionally you can include "stdin" or "expected_output" here
       }),
     }
   );

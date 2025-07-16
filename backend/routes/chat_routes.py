@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-import os, json
+import json
 from openai import OpenAI
 
 chat_bp = Blueprint('chat_bp', __name__)

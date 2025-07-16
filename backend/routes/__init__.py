@@ -1,7 +1,5 @@
 # routes/__init__.py
 
-from flask import Blueprint
-
 # Import all route modules here
 from .chat_routes import chat_bp
 from .practice_routes import practice_bp

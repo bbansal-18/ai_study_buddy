@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 from services.practice_service import load_problems, load_problem, load_testcases
 
 practice_bp = Blueprint('practice', __name__, url_prefix='/practice')
