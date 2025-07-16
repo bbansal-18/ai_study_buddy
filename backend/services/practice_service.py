@@ -24,8 +24,20 @@ def load_problem(problem_id):
     # detailed is a dict keyed by problem_id
     return detailed.get(problem_id)
 
-def load_testcases(problem_id):
+def load_testcases(problem_id, selectedLang):
     """Load testcases for a given problem_id."""
-    path = os.path.abspath(os.path.join(DATA_DIR, 'testcases', f'{problem_id}.json'))
-    with open(path, 'r') as f:
-        return json.load(f)
+    path = os.path.abspath(os.path.join(DATA_DIR, 'problems_gold_code.json'))
+    
+    try:
+        with open(path, 'r') as f:
+            code = json.load(f)
+    except (IOError, json.JSONDecodeError):
+        # file not found or invalid JSON
+        return None
+
+    problem_entry = code.get(problem_id)
+    if not problem_entry:
+        return None
+
+    # use dict access, not attribute
+    return problem_entry.get(selectedLang)

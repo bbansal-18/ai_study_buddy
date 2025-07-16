@@ -17,11 +17,13 @@ def get_problem(problem_id):
         return jsonify({"error": "Problem not found"}), 404
     return jsonify(problem), 200
 
-@practice_bp.route('/problems/<problem_id>/testcases', methods=['GET'])
-def get_problem_testcases(problem_id):
+@practice_bp.route('/problems/<problem_id>/solution/<selectedLang>', methods=['GET'])
+def get_problem_testcases(problem_id, selectedLang):
     """Return the hidden testcases for a problem."""
-    try:
-        cases = load_testcases(problem_id)
-        return jsonify(cases), 200
-    except FileNotFoundError:
+    
+    wrapper = load_testcases(problem_id, selectedLang)
+    if wrapper is None:
         return jsonify({"error": "Testcases not found"}), 404
+
+    # return as JSON so CORS headers are included
+    return jsonify({ "wrapper": wrapper }), 200

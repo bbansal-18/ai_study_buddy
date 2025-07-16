@@ -1,7 +1,9 @@
 // src/pages/ProblemDetail.jsx
 import React, { useState, useEffect, Suspense } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { generateBoilerplate } from '../components/boilerplateGenerator';
+import ValidateCode from '../components/ValidateCode';
+import Result from '../components/Result';
 
 const Editor = React.lazy(() => import('@monaco-editor/react'));
 
@@ -10,7 +12,7 @@ const supportedLanguages = [
   { label: 'Java',       value: 'java' },
   { label: 'C',          value: 'c'    },
   { label: 'C++',        value: 'cpp'  },
-  { label: 'SML',        value: 'sml'  },
+  // { label: 'SML',        value: 'sml'  },
 ];
 
 export default function ProblemDetail() {
@@ -23,6 +25,10 @@ export default function ProblemDetail() {
   );
   const [selectedLang, setSelectedLang] = useState('python');
   const storageKey = `draft-${id}-${selectedLang}`;
+  const [output, setOutput] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   // LOAD draft or generated stub
   useEffect(() => {
@@ -52,7 +58,7 @@ export default function ProblemDetail() {
   useEffect(() => {
     fetch(`http://localhost:5050/practice/problems/${id}`)
       .then(r => {
-        if (!r.ok) throw new Error(`Problem ${id} not found`);
+        if (!r.ok) navigate("/notfound");
         return r.json();
       })
       .then(data => {
@@ -98,6 +104,43 @@ export default function ProblemDetail() {
         });
       });
       setCodes(fresh);
+      setOutput(null);
+    }
+  };
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setOutput(null);
+
+    try {
+      // 1) fetch the test‐harness / wrapper code
+      const wrapRes = await fetch(
+        `http://localhost:5050/practice/problems/${id}/solution/${selectedLang}`
+      );
+      if (!wrapRes.ok) {
+        throw new Error(`Failed to load wrapper: ${wrapRes.statusText}`);
+      }
+      const payload = await wrapRes.json();
+      const wrapperCode = payload.wrapper;
+
+      console.log(wrapperCode);
+
+      // 2) call ValidateCode
+      const userCode = codes[selectedLang];
+      const { result, source } = await ValidateCode(
+        userCode,
+        wrapperCode,
+        selectedLang
+      );
+
+      console.log('Ran source:', source);
+      console.log('Judge0 result:', result);
+      setOutput(result);
+    } catch (err) {
+      console.error(err);
+      setOutput({ error: err.message });
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -149,65 +192,110 @@ export default function ProblemDetail() {
           </pre>
         </div>
       </section>
-
-      {/* Language Tabs */}
-      <section>
-        <h2 className="text-xl font-semibold mb-2">Your Solution</h2>
-        <div className="flex space-x-2 border-b mb-4">
-          {supportedLanguages.map(({label, value}) => (
-            <button
-              key={value}
-              onClick={() => setSelectedLang(value)}
-              className={`px-4 py-2 -mb-px font-medium ${
-                selectedLang===value
-                  ? 'border-b-4 border-blue-500 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-
-        {/* Editor Wrapper */}
-        <div className="bg-white border rounded-lg shadow-sm overflow-hidden">
-          <Suspense fallback={
-            <div className="p-6 text-center text-gray-500">Loading editor…</div>
-          }>
-            <Editor
-              height="400px"
-              language={selectedLang}
-              value={codes[selectedLang]}
-              onChange={handleCodeChange}
-              theme="vs-light"
-              options={{
-                fontSize: 14,
-                minimap: { enabled: false },
-                automaticLayout: true,
-                scrollBeyondLastLine: false,
-              }}
-            />
-          </Suspense>
-        </div>
-      </section>
-
-      {/* Submit + Restart */}
-      <div className="flex items-center">
-        <button
-          onClick={handleRestart}
-          className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition"
-        >
-          Restart
-        </button>
-        <div className="ml-auto">
-          <button
-            onClick={() => console.log('Submit', id, selectedLang, codes[selectedLang])}
-            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition"
+        {/* Left pane: your editor */}
+        {output===null && (<div
+            style={{ flex: '0 0 100%' }}
           >
-            Submit
-          </button>
-        </div>
-      </div>
+            {/* Language Tabs */}
+            <section>
+              <h2 className="text-xl font-semibold mb-2">Your Solution</h2>
+              <div className="flex space-x-2 border-b mb-4">
+                {supportedLanguages.map(({label, value}) => (
+                  <button
+                    key={value}
+                    onClick={() => setSelectedLang(value)}
+                    className={`px-4 py-2 -mb-px font-medium ${
+                      selectedLang===value
+                        ? 'border-b-4 border-blue-500 text-blue-600'
+                        : 'text-gray-600 hover:text-gray-800'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Editor Wrapper */}
+              <div className="bg-white border rounded-lg shadow-sm overflow-hidden">
+                <Suspense fallback={
+                  <div className="p-6 text-center text-gray-500">Loading editor…</div>
+                }>
+                  <Editor
+                    height="400px"
+                    language={selectedLang}
+                    value={codes[selectedLang]}
+                    onChange={handleCodeChange}
+                    theme="vs-light"
+                    options={{
+                      fontSize: 14,
+                      minimap: { enabled: false },
+                      automaticLayout: true,
+                      scrollBeyondLastLine: false,
+                    }}
+                  />
+                </Suspense>
+              </div>
+            </section>
+              {/* Submit + Restart */}
+              <div className="flex items-center">
+                <button
+                  onClick={handleRestart}
+                  className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition"
+                >
+                  Restart
+                </button>
+                <div className="ml-auto">
+                  <button
+                    onClick={handleSubmit}
+                    disabled={submitting}
+                    className={`flex items-center gap-2 px-6 py-2 rounded text-white transition
+                      ${submitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}
+                    `}
+                  >
+                    {submitting ? (
+                      <>
+                        <svg
+                          className="animate-spin h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8v8H4z"
+                          />
+                        </svg>
+                        Running…
+                      </>
+                    ) : (
+                      'Submit'
+                    )}
+                  </button>
+                </div>
+              </div>
+          </div>
+        )}
+        {/* Right pane: only when you have output */}
+        {output && (
+          <div style={{ flex: '0 0 100%' }}>
+            <Result result={output} />
+            <button
+              onClick={handleRestart}
+              className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition"
+            >
+              Restart
+            </button>
+          </div>
+        )}
     </div>
   );
 }

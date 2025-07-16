@@ -168,28 +168,10 @@
     "difficulty": "easy"
   },
   {
-    "id": "stacks_moderate_1",
-    "title": "Min Stack",
-    "topic": "stacks",
-    "difficulty": "moderate"
-  },
-  {
     "id": "stacks_hard_1",
     "title": "Largest Rectangle in Histogram",
     "topic": "stacks",
     "difficulty": "hard"
-  },
-  {
-    "id": "queues_easy_1",
-    "title": "Implement Queue Using Stacks",
-    "topic": "queues",
-    "difficulty": "easy"
-  },
-  {
-    "id": "queues_moderate_1",
-    "title": "Design Circular Queue",
-    "topic": "queues",
-    "difficulty": "moderate"
   },
   {
     "id": "queues_hard_1",
@@ -210,12 +192,6 @@
     "difficulty": "moderate"
   },
   {
-    "id": "greedy_algorithms_hard_1",
-    "title": "Find Median from Data Stream",
-    "topic": "greedy algorithms",
-    "difficulty": "hard"
-  },
-  {
     "id": "python_syntax_easy_1",
     "title": "List Comprehension Practice",
     "topic": "python syntax",
@@ -226,12 +202,6 @@
     "title": "Decorator to Time Function Execution",
     "topic": "python syntax",
     "difficulty": "moderate"
-  },
-  {
-    "id": "python_syntax_hard_1",
-    "title": "Metaclass to Enforce Singleton Pattern",
-    "topic": "python syntax",
-    "difficulty": "hard"
   },
   {
     "id": "loops_easy_1",
@@ -267,24 +237,6 @@
     "id": "functions_hard_1",
     "title": "Decorator with Arguments",
     "topic": "functions",
-    "difficulty": "hard"
-  },
-  {
-    "id": "oop_easy_1",
-    "title": "Define a Rectangle Class",
-    "topic": "OOP",
-    "difficulty": "easy"
-  },
-  {
-    "id": "oop_moderate_1",
-    "title": "Implement a Stack Class with O(1) min() Method",
-    "topic": "OOP",
-    "difficulty": "moderate"
-  },
-  {
-    "id": "oop_hard_1",
-    "title": "Design a Least Recently Used (LRU) Cache",
-    "topic": "OOP",
     "difficulty": "hard"
   }
 ]
