@@ -5,13 +5,18 @@ This file contains all functions that load data from the local database, and
 forwards this data to the routes for the programming practice section of the
 webpage.
 
-Contents:
-    1. load_problems(): Returns a compact list of all problems in the database
+Functions:
+    1. load_problems(): 
+        Returns a list of all practice problems (brief metadata)
     
-    2. load_problem(problem_id): Returns {problem_id}'s detailed description
+    2. load_problem(problem_id): 
+        Returns {problem_id}'s detailed metadata
     
-    3. load_testcases(problem_id, selectedLang): Returns the required code to
-        test the correctness of user's code.
+    3. load_testcases(problem_id, selectedLang): 
+        Returns hidden test-wrapper code for executing user submissions 
+        in the specified language.
+
+@author: github.com/bbansal-18
 """
 # imports
 import json
@@ -57,13 +62,12 @@ def load_testcases(problem_id, selectedLang):
     try:
         with open(path, 'r') as f:
             code = json.load(f)
+            
     except (IOError, json.JSONDecodeError):
-        # file not found or invalid JSON
         return None
 
     problem_entry = code.get(problem_id)
+    
     if not problem_entry:
         return None
-
-    # return the required code from the dict
     return problem_entry.get(selectedLang)
