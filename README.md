@@ -1,40 +1,39 @@
-```markdown
 # AI Study Buddy
 
-A web-based study assistant for computer‑science students.  
-**Backend:** Python + Flask  
-**Frontend:** React, Vite, Tailwind CSS  
+A web-based study assistant for computer science students.
+**Backend:** Python + Flask
+**Frontend:** React, Vite, Tailwind CSS
 
 ---
 
 ## Table of Contents
 
-- [Features](#features)  
-- [Project Structure](#project-structure)  
-- [Quick Start](#quick-start)  
-  - [1. Clone](#1-clone)  
-  - [2. Backend Setup](#2-backend-setup)  
-  - [3. Frontend Setup](#3-frontend-setup)  
-- [Environment Variables](#environment-variables)  
-- [License](#license)  
-- [Contributing](#contributing)  
+* [Features](#features)
+* [Project Structure](#project-structure)
+* [Quick Start](#quick-start)
+
+  * [1. Clone](#1-clone)
+  * [2. Backend Setup](#2-backend-setup)
+  * [3. Frontend Setup](#3-frontend-setup)
+* [Environment Variables](#environment-variables)
+* [License](#license)
+* [Contributing](#contributing)
 
 ---
 
 ## Features
 
-- **Chat Interface** powered by the OpenAI API  
-- **Practice Problems** loader & evaluator with “gold” reference solutions  
-- **Topic Browser** with YAML‑driven topic list  
-- **Clean UI** built in React + Tailwind CSS  
+* **Chat Interface** powered by the OpenAI API
+* **Practice Problems** loader & evaluator with "gold" reference solutions
+* **Topic Browser** with YAML-driven topic list
+* **Clean UI** built in React + Tailwind CSS
 
 ---
 
 ## Project Structure
 
 ```
-
-ai\_study\_buddy/
+ai_study_buddy/
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt
@@ -42,7 +41,7 @@ ai\_study\_buddy/
 │   ├── routes/
 │   └── services/
 ├── data/
-│   ├── problems\_brief.json
+│   ├── problems_brief.json
 │   └── topics.yaml
 ├── frontend/
 │   ├── index.html
@@ -54,18 +53,18 @@ ai\_study\_buddy/
 ├── .gitignore
 ├── LICENSE
 └── README.md
-
-````
+```
 
 ---
 
 ## Quick Start
 
 ### 1. Clone
+
 ```bash
 git clone https://github.com/<your-username>/ai_study_buddy.git
 cd ai_study_buddy
-````
+```
 
 ### 2. Backend Setup
 
@@ -142,20 +141,25 @@ Thank you for your interest in improving AI Study Buddy! Please follow these ste
 1. Fork this repository
 2. Create your feature branch:
 
-   ```bash
-   git checkout -b feature/MyFeature
-   ```
+```bash
+git checkout -b feature/MyFeature
+```
+
 3. Commit your changes:
 
-   ```bash
-   git commit -m "Add MyFeature"
-   ```
+```bash
+git commit -m "Add MyFeature"
+```
+
 4. Push to your fork:
 
-   ```bash
-   git push origin feature/MyFeature
-   ```
+```bash
+git push origin feature/MyFeature
+```
+
 5. Open a Pull Request against `main`
 
 Please ensure your code is linted, formatted, and any new functionality is covered by tests where possible.
 Feel free to open an issue first to discuss major changes or ideas!
+
+---
