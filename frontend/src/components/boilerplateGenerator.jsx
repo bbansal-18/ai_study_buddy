@@ -1,135 +1,140 @@
-// /boilerplateGenerator.js
+/**
+ * components/boilerplateGenerator.js
+ *
+ * Generates boilerplate code stubs for various programming languages
+ * based on a provided function signature specification.
+ *
+ * Exported Functions:
+ *   - generateBoilerplate(spec): string
+ *
+ * Supported Languages:
+ *   python, java, c, cpp, sml
+ * 
+ * @author bbansal-18
+ */
 
 /**
- * Given a problem signature, returns a boilerplate stub in the requested language.
- * 
- * @param {Object} spec
- * @param {string} spec.function   - the function name
- * @param {string[]} spec.inputs   - array of "name: type" strings
- * @param {string} spec.returnType - the return type
- * @param {string} spec.language   - one of 'python','javascript','java','c','cpp','sml'
- * @returns {string}               - the complete boilerplate, or '' if error
+ * Map a generic type specifier to a language-specific type.
+ *
+ * @param {string} typeStr - The type string (e.g., 'int', 'list[int]', 'MyClass').
+ * @param {string} language - Target language key ('python','java','c','cpp','sml').
+ * @returns {string|null}   - Mapped type string or null on failure.
  */
-export function generateBoilerplate({ function: fn, inputs, returnType, language }) {
-  // parse inputs into [{ name, type }]
-  const params = inputs.map(str => {
-    const [name, type] = str.split(':').map(s => s.trim());
-    return { name, type };
-  });
+function mapType(typeStr, language) {
+  const baseTypes = {
+    int:  { python: 'int',   java: 'int',         c: 'int',       cpp: 'int',           sml: 'int' },
+    str:  { python: 'str',   java: 'String',      c: 'char*',    cpp: 'std::string',   sml: 'string' },
+    list: { python: 'list',  java: 'String[]',    c: 'int*',     cpp: 'std::vector',    sml: '' }
+  };
 
-  // helper: map a spec-type to lang-specific
-  function mapType(type) {
-    // basic builtin mapping
-    const base = {
-      int:    { python: 'int',        javascript: '',       java: 'int',      c: 'int',       cpp: 'int',       sml: 'int' },
-      str:    { python: 'str',        javascript: '',       java: 'String',   c: 'char*',    cpp: 'std::string', sml: 'string' },
-      'list': { python: 'list',       javascript: '',       java: 'String[]', c: 'int*',     cpp: 'std::vector', sml: '' },
-    };
-    // list[...] case
-    const listMatch = type.match(/^list\[(.+)\]$/);
-    if (listMatch) {
-      const inner = listMatch[1].trim();
-      const m = mapType(inner);
-      if (!m) return null;
-      switch (language) {
-        case 'python':     return `list[${m}]`;
-        case 'javascript': return '';
-        case 'java':       return `${m}[]`;
-        case 'c':          return `${m}*`;
-        case 'cpp':        return `std::vector<${m}>`;
-        case 'sml':        return `list`; 
-      }
+  const listMatch = typeStr.match(/^list\[(.+)\]$/);
+  if (listMatch) {
+    const inner = listMatch[1].trim();
+    const innerType = mapType(inner, language);
+    if (!innerType) return null;
+    switch (language) {
+      case 'python': return `list[${innerType}]`;
+      case 'java':   return `${innerType}[]`;
+      case 'c':      return `${innerType}*`;
+      case 'cpp':    return `std::vector<${innerType}>`;
+      case 'sml':    return 'list';
+      default:       return null;
     }
-    // direct builtin or struct name
-    if (base[type]) {
-      return base[type][language];
-    }
-    // assume user-defined struct/class name
-    // use same name in Java/C/C++/JS, Python/SML no hint
-    if (['java','c','cpp','javascript'].includes(language)) {
-      return type;
-    }
-    if (language === 'python') return type;
-    if (language === 'sml') return type;
-    return null;
   }
 
-  // build parameter list or bail
-  const mappedParams = params.map(({ name, type }) => {
-    const mt = mapType(type);
-    return mt == null ? null : { name, type: mt };
-  });
-  if (mappedParams.includes(null)) return '';
+  if (baseTypes[typeStr]) {
+    return baseTypes[typeStr][language] || null;
+  }
 
-  // build boilerplate per language
+  // Fallback: assume user-defined type works in all remaining languages
+  if (['python','java','c','cpp','sml'].includes(language)) {
+    return typeStr;
+  }
+
+  return null;
+}
+
+/**
+ * Parse input specifications into parameter objects.
+ *
+ * @param {string[]} inputs - Array of "name: type" strings.
+ * @returns {{name: string, type: string}[]} - Parsed parameters.
+ */
+function parseParams(inputs) {
+  return inputs.map(input => {
+    const [name, type] = input.split(':').map(s => s.trim());
+    return { name, type };
+  });
+}
+
+/**
+ * Generate a function boilerplate stub based on a specification.
+ *
+ * @param {Object} spec
+ * @param {string} spec.function   - The name of the function.
+ * @param {string[]} spec.inputs   - Parameter list as "name: type" strings.
+ * @param {string} spec.returnType - The return type string.
+ * @param {string} spec.language   - Target language ('python','java','c','cpp','sml').
+ * @returns {string}               - Generated boilerplate or empty string on error.
+ */
+export function generateBoilerplate({ function: fn, inputs, returnType, language }) {
+  const params = parseParams(inputs);
+  const mapped = params.map(({ name, type }) => {
+    const t = mapType(type, language);
+    return t ? { name, type: t } : null;
+  });
+  if (mapped.includes(null)) return '';
+
   switch (language) {
     case 'python': {
-      const sig = mappedParams.map(p => `${p.name}: ${p.type}`).join(', ');
+      const sig = mapped.map(p => `${p.name}: ${p.type}`).join(', ');
       return [
         `def ${fn}(${sig}) -> ${returnType}:`,
-        `    # TODO: implement`,
-        `    raise NotImplementedError()`,
-      ].join('\n');
-    }
-    case 'javascript': {
-      const sig = mappedParams.map(p => p.name).join(', ');
-      return [
-        `// TODO: implement ${fn}`,
-        `function ${fn}(${sig}) {`,
-        `  // ...`,
-        `  throw new Error('Not implemented');`,
-        `}`,
+        '    # TODO: implement',
+        '    raise NotImplementedError()'
       ].join('\n');
     }
     case 'java': {
-      const sig = mappedParams.map(p => `${p.type} ${p.name}`).join(', ');
-      // map returnType
-      const ret = mapType(returnType);
-      if (ret == null) return '';
-      return [
+      const sig = mapped.map(p => `${p.type} ${p.name}`).join(', ');
+      const ret = mapType(returnType, language);
+      return ret ? [
         `public ${ret} ${fn}(${sig}) {`,
-        `    // TODO: implement`,
-        `    throw new UnsupportedOperationException("Not implemented");`,
-        `}`,
-      ].join('\n');
+        '    // TODO: implement',
+        '    throw new UnsupportedOperationException("Not implemented");',
+        '}'
+      ].join('\n') : '';
     }
     case 'c': {
-      const sig = mappedParams.map(p => `${p.type} ${p.name}`).join(', ');
-      const ret = mapType(returnType);
-      if (ret == null) return '';
-      return [
-        `#include <stdio.h>`,
-        ``,
+      const sig = mapped.map(p => `${p.type} ${p.name}`).join(', ');
+      const ret = mapType(returnType, language);
+      return ret ? [
+        '#include <stdio.h>',
         `${ret} ${fn}(${sig}) {`,
-        `    // TODO: implement`,
-        `    // not implemented`,
-        `    return ((${ret})0);`,
-        `}`,
-      ].join('\n');
+        '    // TODO: implement',
+        '    return ((' + ret + ')0);',
+        '}'
+      ].join('\n') : '';
     }
     case 'cpp': {
-      const sig = mappedParams.map(p => `${p.type} ${p.name}`).join(', ');
-      const ret = mapType(returnType);
-      if (ret == null) return '';
-      return [
-        `#include <iostream>`,
-        `#include <vector>`,
-        ``,
+      const sig = mapped.map(p => `${p.type} ${p.name}`).join(', ');
+      const ret = mapType(returnType, language);
+      return ret ? [
+        '#include <iostream>',
+        '#include <vector>',
         `${ret} ${fn}(${sig}) {`,
-        `    // TODO: implement`,
-        `    throw std::runtime_error("Not implemented");`,
-        `}`,
-      ].join('\n');
+        '    // TODO: implement',
+        '    throw std::runtime_error("Not implemented");',
+        '}'
+      ].join('\n') : '';
     }
     case 'sml': {
-      const sig = mappedParams.map(p => `${p.name}: ${p.type}`).join(' * ');
-      const ret = mapType(returnType);
-      if (ret == null) return '';
-      return [
+      const sig = mapped.map(p => `${p.name}: ${p.type}`).join(' * ');
+      const ret = mapType(returnType, language);
+      return ret ? [
         `fun ${fn} (${sig}) : ${ret} =`,
-        `    (* TODO: implement *)`,
-        `    raise Fail "Not implemented"`,
-      ].join('\n');
+        '    (* TODO: implement *)',
+        '    raise Fail "Not implemented"'
+      ].join('\n') : '';
     }
     default:
       return '';

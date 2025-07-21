@@ -88,7 +88,7 @@ def chat():
 
     try:
         resp = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1-nano",
             messages= [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user",   "content": user_query}
@@ -104,6 +104,7 @@ def chat():
         return jsonify(response_json), 200
 
     except json.JSONDecodeError:
+        print(response_json)
         # The AI's response wasn't valid JSON—return raw content for debugging
         return jsonify({
             "error": "Failed to parse model response as JSON",
@@ -112,4 +113,5 @@ def chat():
 
     except Exception as e:
         # Catch-all for any other errors (e.g., network, API key issues)
+        print(str(e))
         return jsonify({"error": str(e)}), 500

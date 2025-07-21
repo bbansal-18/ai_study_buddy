@@ -1,6 +1,27 @@
+/**
+ * src/components/Home.jsx
+ *
+ * Renders the home screen with primary navigation buttons for:
+ * - Learn modules
+ * - Practice problems
+ * - Ask Questions (chat)
+ *
+ * Provides full-screen centered layout with prominent action buttons.
+ *
+ * Exports:
+ *   - Home(): React component rendering landing page UI.
+ *
+ * @author bbansal-18
+ */
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Home component
+ *
+ * @returns {JSX.Element} Centered landing page with navigation buttons.
+ */
 export default function Home() {
   const navigate = useNavigate();
 
@@ -30,4 +51,3 @@ export default function Home() {
     </div>
   );
 }
-

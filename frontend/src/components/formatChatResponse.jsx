@@ -1,52 +1,82 @@
-// formatChatResponse.jsx
+/**
+ * src/components/formatChatResponse.jsx
+ *
+ * Provides utilities to transform raw AI response text into React nodes,
+ * handling fenced code blocks and inline-quoted segments for display in chat UI.
+ *
+ * Exported Functions:
+ *   - parseSegments(text): Array<{ type: 'text'|'code', content: string, lang?: string }>
+ *   - formatChatResponse(text): React.ReactNode[]
+ *
+ * parseSegments:
+ *   - Input: raw string possibly containing triple-backtick code blocks
+ *   - Output: ordered array of segment objects indicating text or code
+ *   - Approach: uses a global regex to locate code blocks and split text
+ *
+ * formatChatResponse:
+ *   - Input: raw response text
+ *   - Output: array of React elements (<p> and <pre><code>) ready for rendering
+ *   - Approach: maps segments to appropriate React components, wrapping text in
+ *     <TextWithInlineQuotes> and code blocks in styled <pre> blocks.
+ *
+ * @author bbansal-18
+ */
+
 import React from 'react';
 import { TextWithInlineQuotes } from './TextWithInlineQuotes';
 
 /**
- * Splits a response string into an array of React nodes,
- * converting fenced code blocks and inline-quoted text.
+ * Split raw response into text and code segments.
  *
- * @param {string} text  The raw response string (may contain ```lang ... ``` blocks).
- * @returns {React.ReactNode[]}  Array of <p> and <pre><code> nodes ready to render.
+ * @param {string} text - The AI response possibly containing ```lang ... ``` blocks
+ * @returns {Array<Object>} segments - List of segments:
+ *   - { type: 'text', content: string }
+ *   - { type: 'code', content: string, lang: string }
  */
-export function formatChatResponse(text) {
-  const nodes = [];
+export function parseSegments(text) {
+  const segments = [];
   let lastIndex = 0;
-
-  // Regex to find fenced code blocks: ```lang\n...```
-  const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g;
+  const regex = /```(\w+)?\n([\s\S]*?)```/g;
   let match;
 
-  while ((match = codeBlockRegex.exec(text)) !== null) {
+  while ((match = regex.exec(text)) !== null) {
     const [fullMatch, lang = '', codeContent] = match;
     const idx = match.index;
 
-    // 1) Push any plain text before this code block
     if (idx > lastIndex) {
-      const plain = text.slice(lastIndex, idx);
-      nodes.push(<TextWithInlineQuotes key={lastIndex} text={plain} />);
+      segments.push({ type: 'text', content: text.slice(lastIndex, idx) });
     }
 
-    // 2) Push the code block
-    nodes.push(
-      <pre key={idx} className="my-4 overflow-auto bg-gray-200 rounded">
-        <div className="px-2 py-1 bg-gray-800 text-xs text-gray-200">
-          {lang || 'plaintext'}
-        </div>
-        <code className={`block p-4 language-${lang} text-gray-800`}>
-          {codeContent}
-        </code>
-      </pre>
-    );
-
+    segments.push({ type: 'code', lang, content: codeContent });
     lastIndex = idx + fullMatch.length;
   }
 
-  // 3) Push any trailing text after the last code block
   if (lastIndex < text.length) {
-    const tail = text.slice(lastIndex);
-    nodes.push(<TextWithInlineQuotes key={lastIndex} text={tail} />);
+    segments.push({ type: 'text', content: text.slice(lastIndex) });
   }
 
-  return nodes;
+  return segments;
+}
+
+/**
+ * Convert raw AI response text into an array of React nodes.
+ *
+ * @param {string} text - Raw response string
+ * @returns {React.ReactNode[]} nodes - Array of <TextWithInlineQuotes> and <pre><code> elements
+ */
+export function formatChatResponse(text) {
+  const segments = parseSegments(text);
+  return segments.map((seg, idx) => {
+    if (seg.type === 'code') {
+      const label = seg.lang || 'plaintext';
+      return (
+        <pre key={idx} className="my-4 overflow-auto bg-gray-200 rounded">
+          <div className="px-2 py-1 bg-gray-800 text-xs text-gray-200">{label}</div>
+          <code className={`block p-4 language-${seg.lang} text-gray-800`}> {seg.content} </code>
+        </pre>
+      );
+    }
+
+    return <TextWithInlineQuotes key={idx} text={seg.content} />;
+  });
 }

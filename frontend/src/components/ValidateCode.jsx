@@ -1,52 +1,72 @@
-// src/utils/ValidateCode.js
+/**
+ * src/utils/ValidateCode.js
+ *
+ * Utility functions to integrate user-submitted code with a test harness and
+ * execute it on the Judge0 API. Exports a single async function to validate
+ * code by merging and submitting to Judge0.
+ * 
+ * @author bbansal-18
+ */
+
+// Mapping from language keys to Judge0 language IDs
 const judgeLangIds = {
   python: 71,
   java:   62,
   c:      50,
-  cpp:    54
+  cpp:    54,
 };
 
-const replaceText = {
+// Language-specific placeholder text in the test harness
+const placeholderMap = {
   python: "# function implementation",
   java:   "// function implementation",
   c:      "// function implementation",
-  cpp:    "// function implementation"
+  cpp:    "// function implementation",
 };
 
 /**
- * Replace the language-specific placeholder in wrapperCode
- * with the user’s implementation, then run via Judge0.
+ * Merge user code into the provided wrapper template at the language placeholder.
  *
- * @param {string} userCode      - the code the user typed
- * @param {string} wrapperCode   - the test harness + placeholder
- * @param {string} selectedLang  - one of 'python','java','c','cpp'
- * @returns {Promise<{ result: object, source: string }>}
+ * @param {string} wrapperCode   - Template code containing a placeholder comment.
+ * @param {string} userCode      - Implementation code provided by the user.
+ * @param {string} selectedLang  - One of 'python','java','c','cpp'.
+ * @returns {string}             - Final source code ready for execution.
+ * @throws {Error}               - If no placeholder is defined for the language.
  */
-export default async function ValidateCode(userCode, wrapperCode, selectedLang) {
-  // 1) Merge user code into wrapper
-  const placeholder = replaceText[selectedLang];
-  if (!placeholder) throw new Error(`No placeholder defined for language "${selectedLang}"`);
+function mergeUserCode(wrapperCode, userCode, selectedLang) {
+  const placeholder = placeholderMap[selectedLang];
+  if (!placeholder) {
+    throw new Error(`No placeholder defined for language "${selectedLang}"`);
+  }
+  return wrapperCode.replace(placeholder, userCode);
+}
 
-  const finalSource = wrapperCode.replace(
-    placeholder,
-    userCode
-  );
+/**
+ * Submit code to the Judge0 API for execution and return the result.
+ *
+ * @param {string} sourceCode     - Complete source code to submit.
+ * @param {string} selectedLang   - Language key to resolve Judge0 language ID.
+ * @returns {Promise<object>}     - Parsed JSON result from Judge0.
+ * @throws {Error}                - On network failure or non-OK response.
+ */
+async function submitToJudge0(sourceCode, selectedLang) {
+  const language_id = judgeLangIds[selectedLang];
+  if (!language_id) {
+    throw new Error(`Unsupported language "${selectedLang}"`);
+  }
 
-  console.log(finalSource);
-
-  // 2) Submit to Judge0
   const response = await fetch(
     'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true',
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-RapidAPI-Key':   "e36ea24853msh15a637a55ad3d10p1eb57ajsn4f166c8c4843",
-        'X-RapidAPI-Host':  'judge0-ce.p.rapidapi.com'
+        'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+        'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com',
       },
       body: JSON.stringify({
-        source_code: finalSource,
-        language_id: judgeLangIds[selectedLang],
+        source_code: sourceCode,
+        language_id,
       }),
     }
   );
@@ -56,8 +76,21 @@ export default async function ValidateCode(userCode, wrapperCode, selectedLang) 
     throw new Error(`Judge0 submission failed: ${text}`);
   }
 
-  const result = await response.json();
+  return response.json();
+}
 
-  // 3) Return both the raw Judge0 JSON and the source we ran
-  return { result, source: finalSource };
+/**
+ * Validate user-submitted code by merging it into a test harness and executing.
+ *
+ * @param {string} userCode      - User's implementation snippet.
+ * @param {string} wrapperCode   - Test harness containing placeholder.
+ * @param {string} selectedLang  - Target language ('python','java','c','cpp').
+ * @returns {Promise<{ result: object, source: string }>}  - Execution result and final source.
+ */
+export default async function validateCode(userCode, wrapperCode, selectedLang) {
+  const source = mergeUserCode(wrapperCode, userCode, selectedLang);
+  console.log(source);
+
+  const result = await submitToJudge0(source, selectedLang);
+  return { result, source };
 }

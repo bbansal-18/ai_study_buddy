@@ -1,9 +1,24 @@
+/**
+ * src/components/Result.jsx
+ *
+ * Renders code execution outcomes for practice submissions:
+ * - Displays an icon and title indicating success (Accepted) or failure (Error).
+ * - On success, shows the output, execution time, and memory usage badges.
+ * - On error, shows the relevant error message in a styled code block.
+ *
+ * Helper Functions:
+ *   - evaluateStatus(result): boolean   // determines if result is accepted
+ *   - extractErrorMessage(result): string // selects appropriate error message
+ *
+ * @author bbansal-18
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import styled from 'styled-components';
 
-// Styled components with refined alignment and softer shadow
+// Styled container for the result card
 const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,9 +30,10 @@ const Card = styled.div`
   padding: 20px;
   max-width: 480px;
   margin: 20px auto;
-  height: 200px; /* adjust as needed */
+  height: 200px;
 `;
 
+// Header section with status icon and title
 const Header = styled.div`
   display: flex;
   align-items: center;
@@ -25,12 +41,14 @@ const Header = styled.div`
   color: ${props => (props.success ? '#28a745' : '#dc3545')};
 `;
 
+// Title text for status
 const Title = styled.h2`
   margin: 0 0 0 10px;
   font-size: 1.5rem;
   font-weight: 600;
 `;
 
+// Body area for message or error block
 const Body = styled.div`
   flex: 1;
   display: flex;
@@ -40,12 +58,14 @@ const Body = styled.div`
   margin-top: 10px;
 `;
 
+// Standard paragraph message styling
 const Message = styled.p`
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
 `;
 
+// Container for status badges (time and memory)
 const Badges = styled.div`
   display: flex;
   align-items: center;
@@ -54,6 +74,7 @@ const Badges = styled.div`
   margin-top: 12px;
 `;
 
+// Individual badge styling
 const Badge = styled.span`
   display: inline-flex;
   align-items: center;
@@ -64,26 +85,54 @@ const Badge = styled.span`
   font-weight: 500;
 `;
 
+// Styled block for error messages
 const ErrorBlock = styled.pre`
   background: #fff5f5;
   border: 1px solid #f5c2c7;
   color: #842029;
   border-radius: 8px;
   padding: 12px;
-  overflow-x: auto;
   font-family: monospace;
   font-size: 0.9rem;
 `;
 
 /**
- * Result Component
- * @param {Object} props
- * @param {Object} props.result - JSON response from code execution
+ * Determine if the given result indicates a successful execution.
+ *
+ * @param {Object} result          - Execution result object
+ * @param {Object} result.status   - Status with id and description
+ * @returns {boolean}              - True if accepted, false otherwise
  */
-const Result = ({ result }) => {
-  const { stdout, time, memory, stderr, compile_output, message, status } = result;
-  const isSuccess = status && (status.id === 3 || status.description === 'Accepted');
-  const errorMsg = stderr || compile_output || message || "An unknown error occurred.";
+function evaluateStatus(result) {
+  const { status } = result;
+  return status?.id === 3 || status?.description === 'Accepted';
+}
+
+/**
+ * Extract the primary error message from a failed result.
+ *
+ * @param {Object} result                 - Execution result object
+ * @param {string} [result.stderr]        - Runtime error output
+ * @param {string} [result.compile_output]- Compilation error output
+ * @param {string} [result.message]       - Generic error message
+ * @returns {string}                      - First non-empty error string or fallback text
+ */
+function extractErrorMessage({ stderr, compile_output, message }) {
+  return stderr || compile_output || message || 'An unknown error occurred.';
+}
+
+/**
+ * Result Component
+ *
+ * Renders the UI card for code execution results.
+ *
+ * @param {Object} props
+ * @param {Object} props.result - JSON response from code execution API
+ * @returns {JSX.Element}       - Rendered result component
+ */
+export default function Result({ result }) {
+  const isSuccess = evaluateStatus(result);
+  const errorMsg = extractErrorMessage(result);
 
   return (
     <Card>
@@ -94,10 +143,10 @@ const Result = ({ result }) => {
       <Body>
         {isSuccess ? (
           <>
-            <Message>{stdout ? stdout.trim() : 'All tests passed.'}</Message>
+            <Message>{result.stdout?.trim() || 'All tests passed.'}</Message>
             <Badges>
-              <Badge>⏱ {time}s</Badge>
-              <Badge>💾 {memory} KB</Badge>
+              <Badge>⏱ {result.time}s</Badge>
+              <Badge>💾 {result.memory} KB</Badge>
             </Badges>
           </>
         ) : (
@@ -106,7 +155,7 @@ const Result = ({ result }) => {
       </Body>
     </Card>
   );
-};
+}
 
 Result.propTypes = {
   result: PropTypes.shape({
@@ -122,5 +171,3 @@ Result.propTypes = {
     }).isRequired,
   }).isRequired,
 };
-
-export default Result;

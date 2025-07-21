@@ -1,6 +1,35 @@
-/* src/components/ChatBox.css */
+/**
+ * src/components/ChatBox.css
+ *
+ * Defines the visual styling and layout for the ChatBox component,
+ * including themes for user and AI messages, input controls, and
+ * typing indicators.
+ *
+ * CSS Variables:
+ *   --primary-bg       : Main background color
+ *   --secondary-bg     : Secondary background for message area and footer
+ *   --user-bg          : Background for user message bubbles
+ *   --user-color       : Text color for user messages and buttons
+ *   --ai-bg            : Background for AI message bubbles
+ *   --ai-color         : Text color for AI messages and headers
+ *   --chat-header-bg   : Background for chat header
+ *
+ * Sections:
+ *   - :root variable definitions
+ *   - .chat-card, .chat-header, .chat-body: Layout containers
+ *   - .chat-bubble variants: Message bubble styling
+ *   - .typing indicator: Animated typing dots
+ *   - .chat-input-area: Input bar and send button
+ *   - .chat-footer: Footer with notes and clear action
+ *
+ * @author bbansal-18
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
+/**
+ * Theme variables for colors and fonts
+ */
 :root {
   --primary-bg: #ffffff;
   --secondary-bg: #fafafa;
@@ -11,25 +40,34 @@
   --chat-header-bg: #e9e9e9;
 }
 
+/**
+ * Chat container: overall card styling
+ */
 .chat-card {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   height: 100%;
   background: var(--primary-bg);
   border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
+/**
+ * Header area: title bar for chat
+ */
 .chat-header {
   padding: 1rem;
   background: var(--chat-header-bg);
   color: var(--ai-color);
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
 }
 
+/**
+ * Body area: scrollable messages
+ */
 .chat-body {
   flex: 1;
   padding: 1rem;
@@ -37,26 +75,26 @@
   overflow-y: auto;
 }
 
+/**
+ * Base bubble: common styles for all message bubbles
+ */
 .chat-bubble {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  
-  /* shrink-wrap to content but never exceed 70% of container */
   width: fit-content;
   max-width: 70%;
-
-  /* preserve line breaks & wrap long words */
   white-space: pre-wrap;
   word-wrap: break-word;
-
   margin: 0.5rem 0;
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   line-height: 1.5;
-  
   margin-bottom: 1rem;
 }
 
+/**
+ * User messages: aligned right with user theme
+ */
 .user-bubble {
   background: var(--user-bg);
   color: var(--user-color);
@@ -64,44 +102,56 @@
   text-align: right;
 }
 
+/**
+ * AI messages: aligned left with AI theme
+ */
 .ai-bubble {
   background: var(--ai-bg);
   color: var(--ai-color);
   margin-right: auto;
 }
 
-/* user text inside bubble */
+/**
+ * User message text: slight emphasis
+ */
 .user-text {
   margin: 0;
   font-weight: 500;
 }
 
-/* Typing indicator */
+/**
+ * Typing indicator animation container
+ */
 .typing {
   display: flex;
   align-items: center;
   width: 4rem;
 }
 
+/**
+ * Individual typing dots animation
+ */
 .dot {
-  width: 0.5rem; height: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
   margin: 0 0.125rem;
   background: #6b7280;
   border-radius: 50%;
   opacity: 0;
   animation: blink 1.4s infinite both;
 }
-
 .dot:nth-child(1) { animation-delay: 0s; }
 .dot:nth-child(2) { animation-delay: 0.2s; }
 .dot:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes blink {
-  0%,80%,100% { opacity: 0; }
-  40%        { opacity: 1; }
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
 }
 
-/* input area */
+/**
+ * Input area: text field and send button alignment
+ */
 .chat-input-area {
   display: flex;
   padding: 0.75rem 1rem;
@@ -110,9 +160,12 @@
   border-top: 1px solid #e5e7eb;
 }
 
+/**
+ * Text input styling
+ */
 .chat-input {
   flex: 1;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   background: #f9fafb;
@@ -120,11 +173,13 @@
   border-radius: 9999px;
   outline: none;
 }
-
 .chat-input:focus {
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
 }
 
+/**
+ * Send button: icon wrapper
+ */
 .send-button {
   margin-left: 0.75rem;
   background: var(--user-bg);
@@ -136,18 +191,19 @@
   justify-content: center;
   cursor: pointer;
 }
-
 .send-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 .icon-arrow {
-  width: 1.25rem; height: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
   stroke: var(--user-color);
 }
 
-/* footer */
+/**
+ * Footer: notes and clear action styling
+ */
 .chat-footer {
   display: flex;
   justify-content: space-between;
@@ -156,12 +212,10 @@
   background: var(--secondary-bg);
   border-top: 1px solid #e5e7eb;
 }
-
 .note {
   font-size: 0.75rem;
   color: #6b7280;
 }
-
 .clear-button {
   font-size: 0.75rem;
   color: #ef4444;
@@ -172,7 +226,6 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
-
 .clear-button:hover {
   background: #ef4444;
   color: white;
