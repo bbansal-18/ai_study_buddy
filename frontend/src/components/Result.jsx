@@ -28,9 +28,7 @@ const Card = styled.div`
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 480px;
   margin: 20px auto;
-  height: 200px;
 `;
 
 // Header section with status icon and title

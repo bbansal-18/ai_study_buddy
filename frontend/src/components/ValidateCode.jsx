@@ -89,8 +89,7 @@ async function submitToJudge0(sourceCode, selectedLang) {
  */
 export default async function validateCode(userCode, wrapperCode, selectedLang) {
   const source = mergeUserCode(wrapperCode, userCode, selectedLang);
-  console.log(source);
-
+  
   const result = await submitToJudge0(source, selectedLang);
   return { result, source };
 }

@@ -1,7 +1,9 @@
 # AI Study Buddy
 
 A web-based study assistant for computer science students.
+
 **Backend:** Python + Flask
+
 **Frontend:** React, Vite, Tailwind CSS
 
 ---
@@ -73,16 +75,19 @@ cd backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
-# Copy example env and fill in your keys:
-cp .env.example .env
-
-# Start the backend:
-./run.sh
-# or: python app.py
 ```
 
-The backend API will be available at `http://localhost:5000/`.
+Copy example env and fill in your keys:
+```bash
+cp .env.example .env
+```
+
+Start the backend:
+```bash
+./run.sh # or: python app.py
+```
+
+The backend API will be available at `http://localhost:5050/` (to change this port, go to "__main__" in backend/app.py, and change "port=5050" to your desired port).
 
 ### 3. Frontend Setup
 
