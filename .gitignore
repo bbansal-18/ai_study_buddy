@@ -1,4 +1,22 @@
+# root
+.env
+
+# ── Python / Backend ──────────────────────────────────────────────────────────
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+*.log
+
+# ── Node / Frontend ──────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.env
 frontend/rapidAPI-key.txt
 
-.env
-frontend/.env
+# ── Data & Caches ────────────────────────────────────────────────────────────
+data/**/__pycache__/
+
+# ── OS & Editor ─────────────────────────────────────────────────────────────
+.DS_Store
+.vscode/
+*.swp
