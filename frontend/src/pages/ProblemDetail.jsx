@@ -13,26 +13,6 @@
  *   - sml: TODO (add support in ValidateCode)
  *
  * Helper Functions:
- *   - fetchProblem(id): Promise<Object>
- *   - loadOrGenerateDraft(id, lang, problem): string
- *   - saveDraft(id, lang, code): void
- *   - clearAllDrafts(id): void
- *   - submitSolution(id, lang, userCode): Promise<Object>
- *
- * @author bbansal-18
- */
-
-/**
- * src/pages/ProblemDetail.jsx
- *
- * Renders the detailed view for a single practice problem, including:
- * - Problem metadata (title, topic, difficulty)
- * - Statement, goal, and samples
- * - Code editor with language tabs (Python, Java, C, C++; SML TODO)
- * - Draft persistence and stub generation via generateBoilerplate
- * - Submission handling: fetch test harness, run code via ValidateCode, display result
- *
- * Helper Functions:
  *   - formatWithLineBreaks(text): string       // Inserts line breaks after '; '
  *   - loadProblem(id): Promise<Object>        // Fetches problem data or redirects
  *   - initStubs(problem): Object<string, string> // Generates initial stubs for each language
