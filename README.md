@@ -2,9 +2,11 @@
 
 A web-based study assistant for computer science students.
 
-**Backend:** Python + Flask
+**Frontend**: React + Tailwind CSS + Monaco Editor + fetch API
 
-**Frontend:** React, Vite, Tailwind CSS
+**Backend**: Flask + Flask‑CORS + OpenAI Python SDK + Judge0 via RapidAPI
+
+**Database**: JSON files (problems.json, problems_gold_code.json) + localStorage for drafts and chat.
 
 ---
 
@@ -12,6 +14,7 @@ A web-based study assistant for computer science students.
 
 * [Features](#features)
 * [Project Structure](#project-structure)
+* [Description](#description)
 * [Quick Start](#quick-start)
 
   * [1. Clone](#1-clone)
@@ -25,10 +28,89 @@ A web-based study assistant for computer science students.
 
 ## Features
 
-* **Chat Interface** powered by the OpenAI API
-* **Practice Problems** loader & evaluator with "gold" reference solutions
-* **Topic Browser** with YAML-driven topic list
-* **Clean UI** built in React + Tailwind CSS
+AI Study Buddy helps students learn and practice computer science by combining:
+
+* **Coding problem**s with live submission & feedback via Judge0.
+* **AI‑powered chat tutoring** for on‑demand explanations, hints, and concept discussions.
+
+---
+
+## Description
+
+### 1. Coding Practice Workflow
+
+1. **Metadata & Search**
+
+   * Client loads a lightweight index (`id`, `title`, `topic`, `difficulty`, `keywords`), enabling instant filter/search.
+
+2. **Problem Detail**
+
+   * Fetch full problem data from
+
+     ```
+     GET /practice/problems/:id
+     ```
+   * Displays: statement, samples, function signature placeholder, and a tabbed code editor.
+
+3. **Custom Boilerplates**
+
+   * On load, a helper (`generateBoilerplate`) generates language‑specific stubs for the function signature + `// TODO`.
+   * Editors are seeded with these stubs (unless a draft exists in `localStorage`).
+
+4. **Editor UI**
+
+   * Monaco Editor wrapped in a styled card.
+   * Tabs to switch between Python, Java, C, and C++.
+   * Drafts auto‑saved per‑language per‑problem to `localStorage`, with a **Restart** button to reset.
+
+5. **Submission & Validation**
+
+   * **Fetch wrapper/test harness** via
+
+     ```
+     GET /practice/problems/:id/solution/:lang
+     ```
+   * **Merge** user code into the harness at the placeholder comment.
+   * **Submit** to Judge0 (via RapidAPI).
+   * **Receive** JSON (`stdout`, `stderr`, `status`), parse for assertion failures.
+   * **Display** results inline, indicating which test failed or **Success**.
+
+---
+
+### 2. AI‑Powered Chat Tutor
+
+#### Frontend (`ChatBox.jsx`)
+
+* **History management** using `localStorage` (24‑hour retention):
+
+  * On mount, prune messages older than 24 h and inject the greeting:
+
+    > “I am your AI assistant. Ask me anything!”
+  * On update, persist history and auto‑scroll to bottom.
+* **Messages** rendered as bubbles:
+
+  * **User** on right (blue); **AI** on left (light gray).
+  * Inline code spans (`` `code` ``) and quoted terms (`'term'`) styled via `formatChatResponse`.
+  * Typing indicator with animated dots.
+* **Input bar**: pill‑shaped input + circular send button.
+* **Clear Chat** pill‑button to reset after confirmation.
+* **Footer** note: “Chat history is kept for 24 hours.”
+
+#### Backend (`routes/chat_routes.py`)
+
+* **`POST /chat`**
+
+  1. Validates presence of `"query"` in JSON.
+  2. Sends to OpenAI with a strict system prompt that:
+
+     * Forces **JSON‑only** replies with keys:
+
+       * `valid` (bool),
+       * `reason` (null or string),
+       * `topic` (from the defined CS topics list or `"unknown"`),
+       * `answer` (concise, code‑focused),
+       * `keywords` (array of strings).
+  3. Parses the model’s JSON and returns the output as a JSON object.
 
 ---
 
